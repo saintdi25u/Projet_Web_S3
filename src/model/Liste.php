@@ -1,6 +1,6 @@
 <?php
 
-namespace mywishlist;
+namespace mywishlist\model;
 
 use Illuminate\Database\Eloquent\Model;
 
