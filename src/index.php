@@ -13,9 +13,10 @@ if($config){
 $bdd -> setAsGlobal();
 $bdd ->bootEloquent();
 
+/**
 $list = \mywishlist\model\Liste::all();
 foreach ($list as $e){
     print($e->no . "<br>");
     print($e->titre. "<br>");
 }
-
+ */
