@@ -1,7 +1,8 @@
 <?php
 
 require_once "vendor/autoload.php";
-
+use \Psr\Http\Message\ServerRequestInterface as Request;
+use \Psr\Http\Message\ResponseInterface as Response;
 use Illuminate\Database\Capsule\Manager as DB;
 
 $bdd = new DB;
@@ -12,12 +13,24 @@ if($config){
 }
 $bdd -> setAsGlobal();
 $bdd ->bootEloquent();
+session_start();
 $app = new \Slim\App();
-$uti = new \mywishlist\controller\Utilisateur();
-$uti ->registerForm();
 
 
 
+
+
+$app->get('/auth', function () {
+    $controleur = new \mywishlist\controller\Utilisateur();
+    $controleur->registerForm();
+});
+$app->post('/auth', function(){
+    $controleur = new \mywishlist\controller\Utilisateur();
+    $controleur->creerUtilisateur($_POST['nom'], $_POST['password']);
+});
+
+
+$app->run();
 
 /**
 $list = \mywishlist\model\Liste::all();

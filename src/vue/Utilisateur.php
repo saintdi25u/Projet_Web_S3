@@ -2,7 +2,9 @@
 
 namespace mywishlist\vue;
 
-class Utilisateur {
+use Illuminate\Support\Facades\View;
+
+class Utilisateur extends View {
 
     public function registerForm(){
         echo  <<<eze
@@ -12,7 +14,27 @@ class Utilisateur {
         <p>Mot de passe : <input type ="password" name = "password"></p>
         <input type = "submit" value = "S'enregistrer">
          </form>
-eze;
+    eze;
+    }
+
+    public function creationSucees(){
+        echo '<h2> Creation de lutilisateur avec succès </h2>';
+
+    }
+
+    public function render(){
+        $content = $this->registerForm();
+         $html = <<<END
+         <!DOCTYPE html>
+         <head>
+         </head>
+          <body>
+          $content;
+</body>
+END;
+
+         return $html;
+
 
     }
 
