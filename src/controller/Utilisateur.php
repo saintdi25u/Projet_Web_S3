@@ -5,7 +5,7 @@ class Utilisateur{
 
     public function registerForm(){
         $v = new \mywishlist\vue\Utilisateur();
-        $v -> registerForm();
+        $v -> formulaireAuth();
     }
 
     public function creerUtilisateur($nom, $mdp){

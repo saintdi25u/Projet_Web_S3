@@ -13,6 +13,8 @@ if($config){
 $bdd -> setAsGlobal();
 $bdd ->bootEloquent();
 
+$VueUti = new \mywishlist\vue\Utilisateur();
+$VueUti->registerForm();
 /**
 $list = \mywishlist\model\Liste::all();
 foreach ($list as $e){
