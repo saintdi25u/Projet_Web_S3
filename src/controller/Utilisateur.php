@@ -1,19 +1,18 @@
 <?php
-namespace mywishlist\controleur;
+namespace mywishlist\controller;
 
 class Utilisateur{
 
     public function registerForm(){
         $v = new \mywishlist\vue\Utilisateur();
-        $v -> formulaireAuth();
+        $v -> registerForm();
     }
 
     public function creerUtilisateur($nom, $mdp){
         $user = new \mywishlist\model\Utilisateur();
-        $user->nom = $nom;
-        $user -> mdp = password_hash($mdp, PASSWORD_DEFAULT, ['cost'=> 12]);
+        $user->username = $nom;
+        $user -> passwd = password_hash($mdp, PASSWORD_DEFAULT, ['cost'=> 12]);
         $user -> save();
-
     }
 
     public function authUtilisateur($nom, $mdp) : \mywishlist\model\Utilisateur {

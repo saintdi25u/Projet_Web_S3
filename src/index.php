@@ -12,9 +12,13 @@ if($config){
 }
 $bdd -> setAsGlobal();
 $bdd ->bootEloquent();
+$app = new \Slim\App();
+$uti = new \mywishlist\controller\Utilisateur();
+$uti ->registerForm();
 
-$VueUti = new \mywishlist\vue\Utilisateur();
-$VueUti->registerForm();
+
+
+
 /**
 $list = \mywishlist\model\Liste::all();
 foreach ($list as $e){
