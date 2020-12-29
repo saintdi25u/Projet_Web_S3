@@ -10,7 +10,6 @@ class Item {
 
     public function enregistrerItem(){
         $model = new \mywishlist\model\Item();
-
         $model->liste_id = $_POST['liste_id'];
         $model->nom = $_POST['nom'];
         $model->descr = $_POST['description'];

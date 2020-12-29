@@ -18,8 +18,6 @@ $app = new \Slim\App();
 
 
 
-
-
 $app->get('/auth', function () {
     $controleur = new \mywishlist\controller\Utilisateur();
     $controleur->registerForm();
