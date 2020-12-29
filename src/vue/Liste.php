@@ -28,9 +28,6 @@ ezz;
           $content;
 </body>
 END;
-
          return $html;
-
-
      }
  }

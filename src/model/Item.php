@@ -11,6 +11,6 @@ class Item extends Model{
     public $timestamps= false;
 
     public function list(){
-        return $this -> belongsTo('mywishlist\models\Liste', 'liste_id');
+        return $this -> belongsTo('mywishlist\model\Liste', 'liste_id');
     }
 }

@@ -19,7 +19,6 @@ class Utilisateur {
 
     public function creationSucees(){
         echo '<h2> Creation de lutilisateur avec succès </h2>';
-
     }
 
     public function render(){

@@ -29,15 +29,27 @@ $app->post('/auth', function(){
     $controleur->creerUtilisateur($_POST['nom'], $_POST['password']);
 });
 
-$app->get('/create', function(){
+$app->get('/create/liste', function(){
     $controleur = new \mywishlist\controller\Liste();
     $controleur ->creerListe();
 });
 
-$app->post('/create', function(){
+$app->post('/create/liste', function(){
     $controleur = new \mywishlist\controller\Liste();
     $controleur ->enregistrerListe();
 });
+
+$app->get('/create/item', function(){
+    $controleur = new \mywishlist\controller\Item();
+    $controleur ->creerItem();
+});
+
+$app->post('/create/item', function(){
+    $controleur = new \mywishlist\controller\Item();
+    $controleur ->enregistrerItem();
+});
+
+
 
 
 $app->run();
