@@ -29,6 +29,16 @@ $app->post('/auth', function(){
     $controleur->creerUtilisateur($_POST['nom'], $_POST['password']);
 });
 
+$app->get('/create', function(){
+    $controleur = new \mywishlist\controller\Liste();
+    $controleur ->creerListe();
+});
+
+$app->post('/create', function(){
+    $controleur = new \mywishlist\controller\Liste();
+    $controleur ->enregistrerListe();
+});
+
 
 $app->run();
 

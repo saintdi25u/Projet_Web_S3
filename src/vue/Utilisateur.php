@@ -4,7 +4,7 @@ namespace mywishlist\vue;
 
 use Illuminate\Support\Facades\View;
 
-class Utilisateur extends View {
+class Utilisateur {
 
     public function registerForm(){
         echo  <<<eze

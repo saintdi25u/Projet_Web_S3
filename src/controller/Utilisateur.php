@@ -24,8 +24,6 @@ class Utilisateur{
                 echo ' (Utilisateur deja existant) Bonjour' . $user->username;
                 return $user;
             }
-        } else {
-            // ecrire que l'utilisateur n'existe pas
         }
-    }
+        }
 }
