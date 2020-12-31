@@ -21,6 +21,10 @@ class Utilisateur {
         echo '<h2> Creation de lutilisateur avec succès </h2>';
     }
 
+    public function utilisateurExistant(){
+        echo '<h2> Utilisateur deja existant </h2>';
+    }
+
     public function render(){
         $content = $this->registerForm();
          $html = <<<END
@@ -33,8 +37,6 @@ class Utilisateur {
 END;
 
          return $html;
-
-
     }
 
 }

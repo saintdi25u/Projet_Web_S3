@@ -18,6 +18,7 @@ $app = new \Slim\App();
 
 
 
+
 $app->get('/auth', function () {
     $controleur = new \mywishlist\controller\Utilisateur();
     $controleur->registerForm();
@@ -25,6 +26,11 @@ $app->get('/auth', function () {
 $app->post('/auth', function(){
     $controleur = new \mywishlist\controller\Utilisateur();
     $controleur->creerUtilisateur($_POST['nom'], $_POST['password']);
+});
+
+$app->post('auth', function(){
+    $controleur = new \mywishlist\controller\Utilisateur();
+    $controleur->authUtilisateur($_POST['nom'], $_POST['password']);
 });
 
 $app->get('/create/liste', function(){

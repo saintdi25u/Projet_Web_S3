@@ -3,8 +3,6 @@
 namespace mywishlist\vue;
 
  class Liste {
-
-
      public function creerFormListe() {
          echo <<<ezz
     <h2> Creation d'une nouvelle Liste </h2>
@@ -17,6 +15,7 @@ namespace mywishlist\vue;
 </form>
 ezz;
      }
+
 
      public function render(){
          $content = $this->creerFormListe();
