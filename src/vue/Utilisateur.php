@@ -17,13 +17,15 @@ class Utilisateur {
     eze;
     }
 
-    public function creationSucees(){
-        echo '<h2> Creation de lutilisateur avec succès </h2>';
+    public function creationSucees($name){
+        echo '<h2> Creation de lutilisateur avec succès. Bonjour, ' . $name . '</h2>';
     }
 
-    public function utilisateurExistant(){
-        echo '<h2> Utilisateur deja existant </h2>';
+    public function utilisateurExistant($username){
+        echo '<h3> Bonjour ' . $username . '</h3>';
     }
+
+
 
     public function render(){
         $content = $this->registerForm();

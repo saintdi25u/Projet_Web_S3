@@ -15,20 +15,20 @@ class Utilisateur{
         $user -> passwd = password_hash($mdp, PASSWORD_DEFAULT, ['cost'=> 12]);
         $name = \mywishlist\model\Utilisateur::where('username', '=', $nom)->first();
         if(!is_null($name)){
-            $v->utilisateurExistant();
+            $v->utilisateurExistant($nom);
+            $this->authUtilisateur($nom,$mdp);
         } else {
             $user -> save();
-            $v->creationSucees();
+            $v->creationSucees($nom);
         }
     }
 
     public function authUtilisateur($nom, $mdp) : \mywishlist\model\Utilisateur {
+        $v = new \mywishlist\vue\Utilisateur();
         $user = \mywishlist\model\Utilisateur::where('username', '=', $nom)->first();
-        if(!is_null($user)){
-            if(password_verify($mdp, $user->password)){
-                echo ' (Utilisateur deja existant) Bonjour' . $user->username;
+            if(password_verify($mdp, $user->password)) {
+                $v->utilisateurExistant($nom);
             }
-        }
         return $user;
         }
 }
