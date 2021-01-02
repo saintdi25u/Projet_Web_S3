@@ -2,8 +2,16 @@
 
 namespace mywishlist\vue;
 
- class Liste {
-     public function creerFormListe() {
+ use Slim\App;
+ use Slim\Container;
+
+ class Liste extends Vue
+ {
+
+     protected $liste;
+
+     public function creerFormListe()
+     {
          echo <<<ezz
     <h2> Creation d'une nouvelle Liste </h2>
     <form action ="" method = "post">
@@ -16,23 +24,10 @@ namespace mywishlist\vue;
 ezz;
      }
 
-    public function showContenuListe(){
-         echo <<<eze
-        <input type = "submit" value = "Voir">
-eze;
-    }
 
-
-     public function render(){
-         $content = $this->creerFormListe();
-         $html = <<<END
-         <!DOCTYPE html>
-         <head>
-         </head>
-          <body>
-          $content;
-</body>
-END;
-         return $html;
+     public function render()
+     {
+         $this->html = $this->creerFormListe();
+         echo parent::render();
      }
  }

@@ -3,9 +3,11 @@ namespace mywishlist\controller;
 
 class Utilisateur{
 
+
+
     public function registerForm(){
-        $v = new \mywishlist\vue\Utilisateur();
-        $v -> render();
+            $v = new \mywishlist\vue\Utilisateur();
+            $v -> render();
     }
 
     public function creerUtilisateur($nom, $mdp){

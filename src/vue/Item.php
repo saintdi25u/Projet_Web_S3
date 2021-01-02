@@ -1,7 +1,7 @@
 <?php
 
 namespace mywishlist\vue;
-class Item {
+class Item extends Vue{
 
     function creerFormItem(){
         echo <<<eze
@@ -19,18 +19,7 @@ class Item {
     }
 
     public function render(){
-        $content = $this->creerFormItem();
-        $html = <<<END
-         <!DOCTYPE html>
-         <head>
-         </head>
-          <body>
-          $content;
-</body>
-END;
-
-        return $html;
-
-
+        $this->html = $this->creerFormItem();
+        echo  parent::render();
     }
 }

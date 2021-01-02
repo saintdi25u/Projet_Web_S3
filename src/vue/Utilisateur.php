@@ -4,7 +4,7 @@ namespace mywishlist\vue;
 
 use Illuminate\Support\Facades\View;
 
-class Utilisateur {
+class Utilisateur extends Vue  {
 
     public function registerForm(){
         echo  <<<eze
@@ -25,20 +25,10 @@ class Utilisateur {
         echo '<h3> Bonjour ' . $username . '</h3>';
     }
 
-
-
+    
     public function render(){
-        $content = $this->registerForm();
-         $html = <<<END
-         <!DOCTYPE html>
-         <head>
-         </head>
-          <body>
-          $content;
-</body>
-END;
-
-         return $html;
+        $this->html = $this->registerForm();
+        echo parent::render();
     }
 
 }
