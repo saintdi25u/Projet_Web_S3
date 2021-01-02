@@ -20,4 +20,20 @@ class Liste {
         $model->save();
     }
 
+    public function afficherListe(){
+        $model= new \mywishlist\model\Liste();
+        $lists = \mywishlist\model\Liste::all();
+        $vue = new \mywishlist\vue\Liste();
+        print "<h2>Listes Disponibles</h2>";
+        foreach($lists as $list){
+            print( 'Numéro  : ' . $list ->no . "<br>" );
+            print( 'User_id : ' . $list ->user_id . "<br>" );
+            print( 'Titre de la liste : ' . $list ->titre . "<br>" );
+            print( 'Description de la liste  : ' . $list ->description . "<br>" );
+            print( 'Expiration de la liste : ' . $list -> expiration . "<br>" );
+            $vue ->showContenuListe();
+            print "<br>";
+        }
+    }
+
 }

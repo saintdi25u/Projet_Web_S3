@@ -16,6 +16,12 @@ namespace mywishlist\vue;
 ezz;
      }
 
+    public function showContenuListe(){
+         echo <<<eze
+        <input type = "submit" value = "Voir">
+eze;
+    }
+
 
      public function render(){
          $content = $this->creerFormListe();

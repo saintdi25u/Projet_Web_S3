@@ -55,6 +55,11 @@ $app->post('/create/item', function(){
     $controleur ->enregistrerItem();
 });
 
+$app -> get('/show/liste', function(){
+    $controleur = new \mywishlist\controller\Liste();
+    $controleur ->afficherListe();
+});
+
 
 
 
