@@ -2,6 +2,9 @@
 
 namespace mywishlist\controller;
 
+use \Psr\Http\Message\ServerRequestInterface as Request;
+use \Psr\Http\Message\ResponseInterface as Response;
+
 class Liste {
 
     private $uti ;
@@ -22,7 +25,7 @@ class Liste {
         $model->save();
     }
 
-    public function afficherListe(){
+    public function afficherListe(Request $rq, Response $rs, $args) : Response {
             $model= new \mywishlist\model\Liste();
             $lists = \mywishlist\model\Liste::all();
             $vue = new \mywishlist\vue\Liste();
@@ -37,5 +40,6 @@ class Liste {
                 print "<br>";
             }
     }
+  
 
 }

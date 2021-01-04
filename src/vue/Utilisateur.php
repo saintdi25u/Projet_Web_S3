@@ -17,6 +17,21 @@ class Utilisateur extends Vue  {
     eze;
     }
 
+    public function ConnectionForm(){
+        echo  <<<eze
+        <h2> Connecter-vous </h2>
+        <form action = "" method = "post">
+        Nom : <input type = "text" name = "nom-connect">
+        <p>Mot de passe : <input type ="password" name = "password-connect"></p>
+        <input type = "submit" value = "Connexion">
+         </form>
+    eze;
+    }
+
+    public function accueil(){
+        echo "ACCCEUIL : Racine du site";
+    }
+
     public function creationSucees($name){
         echo '<h2> Creation de lutilisateur avec succès. Bonjour, ' . $name . '</h2>';
     }
@@ -25,7 +40,7 @@ class Utilisateur extends Vue  {
         echo '<h3> Bonjour ' . $username . '</h3>';
     }
 
-    
+
     public function render(){
         $this->html = $this->registerForm();
         echo parent::render();

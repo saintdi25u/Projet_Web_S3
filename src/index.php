@@ -13,21 +13,35 @@ if($config){
 }
 $bdd -> setAsGlobal();
 $bdd ->bootEloquent();
+
 session_start();
 $app = new \Slim\App();
 
 
 
 
-$app->get('/auth', function () {
+$app->get('/register', function () {
     $controleur = new \mywishlist\controller\Utilisateur();
     $controleur->registerForm();
 });
-$app->post('/auth', function(){
+
+$app->post('/register', function(){
     $controleur = new \mywishlist\controller\Utilisateur();
     $controleur->creerUtilisateur($_POST['nom'], $_POST['password']);
-    $controleur->authUtilisateur($_POST['nom'], $_POST['password']);
+
 });
+
+$app->get('/connect', function () {
+    $controleur = new \mywishlist\controller\Utilisateur();
+    $controleur->connectForm();
+});
+
+$app->post('/connect', function(){
+    $controleur = new \mywishlist\controller\Utilisateur();
+    $controleur->authUtilisateur($_POST['nom-connect'], $_POST['password-connect']);
+});
+
+
 
 /**
 $app->post('auth', function(){
