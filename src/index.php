@@ -8,76 +8,30 @@ use Illuminate\Database\Capsule\Manager as DB;
 $bdd = new DB;
 $config =parse_ini_file(__DIR__ . '/conf/db.config.ini');
 
-if($config){
-    $bdd->addConnection($config);
-}
+
+$container = new \Slim\Container($config);
+$container['settings']['displayErrorDetails'] = true;
+$bdd->addConnection($config);
+
 $bdd -> setAsGlobal();
 $bdd ->bootEloquent();
 
 session_start();
-$app = new \Slim\App();
+$app = new \Slim\App($container);
 
 
+$app->get('/', \mywishlist\controller\Utilisateur::class.':acceuil')->setName('racine');
+$app->get('/connect', \mywishlist\controller\Utilisateur::class.':connectForm')->setName('connect');
+$app->get('/register', \mywishlist\controller\Utilisateur::class.':registerForm')->setName('register');
 
+$app->post('/connect', \mywishlist\controller\Utilisateur::class.':authUtilisateur')->setName('connect');
+$app->post('/register', \mywishlist\controller\Utilisateur::class.':creerUtilisateur')->setName('register');
 
-$app->get('/register', function () {
-    $controleur = new \mywishlist\controller\Utilisateur();
-    $controleur->registerForm();
-});
-
-$app->post('/register', function(){
-    $controleur = new \mywishlist\controller\Utilisateur();
-    $controleur->creerUtilisateur($_POST['nom'], $_POST['password']);
-
-});
-
-$app->get('/connect', function () {
-    $controleur = new \mywishlist\controller\Utilisateur();
-    $controleur->connectForm();
-});
-
-$app->post('/connect', function(){
-    $controleur = new \mywishlist\controller\Utilisateur();
-    $controleur->authUtilisateur($_POST['nom-connect'], $_POST['password-connect']);
-});
-
-
-
-/**
-$app->post('auth', function(){
-    $controleur = new \mywishlist\controller\Utilisateur();
-
-});
-*/
-$app->get('/create/liste', function(){
-    $controleur = new \mywishlist\controller\Liste();
-    $controleur ->creerListe();
-});
-
-$app->post('/create/liste', function(){
-    $controleur = new \mywishlist\controller\Liste();
-    $controleur ->enregistrerListe();
-});
-
-$app->get('/create/item', function(){
-    $controleur = new \mywishlist\controller\Item();
-    $controleur ->creerItem();
-});
-
-$app->post('/create/item', function(){
-    $controleur = new \mywishlist\controller\Item();
-    $controleur ->enregistrerItem();
-});
-
-$app -> get('/show/liste', function(){
-    $controleur = new \mywishlist\controller\Liste();
-    $controleur ->afficherListe();
-});
-
-
-
-
+$app->get('/deconnect', \mywishlist\controller\Utilisateur::class.':deconnect')->setName('deconnexion');
 $app->run();
+
+
+
 
 /**
 $list = \mywishlist\model\Liste::all();

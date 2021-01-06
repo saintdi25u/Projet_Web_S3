@@ -19,7 +19,7 @@ class Item extends Vue{
     }
 
     public function render(){
-        $this->html = $this->creerFormItem();
+        $this->html= $this->creerFormItem();
         echo  parent::render();
     }
 }

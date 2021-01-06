@@ -1,0 +1,160 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="BranchesTreeState">
+    <expand>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="LOCAL_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="GROUP_NODE:origin" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+    </expand>
+    <select />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="11838f2f-a87a-484b-b157-d0dcdf08f945" name="Default Changelist" comment="Auth">
+      <change beforePath="$PROJECT_DIR$/src/controller/Utilisateur.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/controller/Utilisateur.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/index.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/vue/Item.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/vue/Item.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/vue/Utilisateur.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/vue/VueUtilisateur.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/vue/Vue.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/vue/Vue.php" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ComposerSettings" doNotAsk="true">
+    <pharConfigPath>$PROJECT_DIR$/src/composer.json</pharConfigPath>
+    <execution />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="PhpWorkspaceProjectConfiguration">
+    <include_path>
+      <path value="$PROJECT_DIR$/src/vendor/illuminate/contracts" />
+      <path value="$PROJECT_DIR$/src/vendor/illuminate/database" />
+      <path value="$PROJECT_DIR$/src/vendor/illuminate/macroable" />
+      <path value="$PROJECT_DIR$/src/vendor/composer" />
+      <path value="$PROJECT_DIR$/src/vendor/psr/container" />
+      <path value="$PROJECT_DIR$/src/vendor/psr/http-message" />
+      <path value="$PROJECT_DIR$/src/vendor/psr/simple-cache" />
+      <path value="$PROJECT_DIR$/src/vendor/slim/slim" />
+      <path value="$PROJECT_DIR$/src/vendor/voku/portable-ascii" />
+      <path value="$PROJECT_DIR$/src/vendor/nikic/fast-route" />
+      <path value="$PROJECT_DIR$/src/vendor/nesbot/carbon" />
+      <path value="$PROJECT_DIR$/src/vendor/pimple/pimple" />
+      <path value="$PROJECT_DIR$/src/vendor/symfony/console" />
+      <path value="$PROJECT_DIR$/src/vendor/symfony/polyfill-ctype" />
+      <path value="$PROJECT_DIR$/src/vendor/symfony/polyfill-intl-grapheme" />
+      <path value="$PROJECT_DIR$/src/vendor/symfony/polyfill-intl-normalizer" />
+      <path value="$PROJECT_DIR$/src/vendor/symfony/polyfill-mbstring" />
+      <path value="$PROJECT_DIR$/src/vendor/symfony/polyfill-php73" />
+      <path value="$PROJECT_DIR$/src/vendor/symfony/polyfill-php80" />
+      <path value="$PROJECT_DIR$/src/vendor/symfony/service-contracts" />
+      <path value="$PROJECT_DIR$/src/vendor/symfony/string" />
+      <path value="$PROJECT_DIR$/src/vendor/symfony/translation" />
+      <path value="$PROJECT_DIR$/src/vendor/symfony/translation-contracts" />
+      <path value="$PROJECT_DIR$/src/vendor/illuminate/collections" />
+      <path value="$PROJECT_DIR$/src/vendor/doctrine/inflector" />
+      <path value="$PROJECT_DIR$/src/vendor/illuminate/support" />
+      <path value="$PROJECT_DIR$/src/vendor/illuminate/container" />
+    </include_path>
+  </component>
+  <component name="ProjectId" id="1mHqiGAdRYLQMSTtKnpQ46AcBUD" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="nodejs_package_manager_path" value="npm" />
+    <property name="vue.rearranger.settings.migration" value="true" />
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="11838f2f-a87a-484b-b157-d0dcdf08f945" name="Default Changelist" comment="" />
+      <created>1609160991438</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1609160991438</updated>
+      <workItem from="1609160993045" duration="28000" />
+      <workItem from="1609161021866" duration="1322000" />
+      <workItem from="1609169709876" duration="8145000" />
+      <workItem from="1609249832030" duration="8846000" />
+      <workItem from="1609330347110" duration="552000" />
+      <workItem from="1609418685079" duration="4235000" />
+      <workItem from="1609591929475" duration="10729000" />
+      <workItem from="1609688320734" duration="813000" />
+      <workItem from="1609747469778" duration="444000" />
+      <workItem from="1609764264184" duration="9453000" />
+      <workItem from="1609874156151" duration="2976000" />
+      <workItem from="1609938069345" duration="7245000" />
+    </task>
+    <task id="LOCAL-00001" summary="Auth">
+      <created>1609771144539</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1609771144539</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+    <option name="oldMeFiltersMigrated" value="true" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Auth" />
+    <option name="LAST_COMMIT_MESSAGE" value="Auth" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="764" y="188" key="#com.intellij.ide.util.MemberChooser" timestamp="1609874792616">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="764" y="188" key="#com.intellij.ide.util.MemberChooser/0.0.1920.1040/-1920.-26.1920.1040@0.0.1920.1040" timestamp="1609874792616" />
+    <state x="620" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog" timestamp="1609874535480">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="620" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog/0.0.1920.1040/-1920.-26.1920.1040@0.0.1920.1040" timestamp="1609874535480" />
+    <state x="740" y="275" key="FileChooserDialogImpl" timestamp="1609161018585">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="740" y="275" key="FileChooserDialogImpl/0.0.1920.1040/-1920.-26.1920.1040@0.0.1920.1040" timestamp="1609161018585" />
+    <state x="794" y="439" key="NewPhpFileDialog" timestamp="1609594555478">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="794" y="439" key="NewPhpFileDialog/0.0.1920.1040/-1920.-26.1920.1040@0.0.1920.1040" timestamp="1609594555478" />
+    <state x="552" y="249" key="Vcs.Push.Dialog.v2" timestamp="1609771150318">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="552" y="249" key="Vcs.Push.Dialog.v2/0.0.1920.1040/-1920.-26.1920.1040@0.0.1920.1040" timestamp="1609771150318" />
+    <state x="1008" y="221" width="672" height="678" key="search.everywhere.popup" timestamp="1609170754457">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="1008" y="221" width="672" height="678" key="search.everywhere.popup/0.0.1920.1040/-1920.-26.1920.1040@0.0.1920.1040" timestamp="1609170754457" />
+  </component>
+</project>
