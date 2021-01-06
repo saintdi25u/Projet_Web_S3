@@ -57,13 +57,21 @@ class Utilisateur{
        $login = filter_var($post['nom-connect'], FILTER_SANITIZE_STRING);
        $mdp = filter_var($post['password-connect'], FILTER_SANITIZE_STRING);
        $user = \mywishlist\model\Utilisateur::where('username' ,'=', $login)->first();
-       if($user->username === $login){
+       $vue = new VueUtilisateur(['login' => $login], $this->container);
+       if(!is_null($user)){
            if(password_verify($mdp, $user->passwd)){
                $this->loadProfile($user->uid);
+               $rs ->getBody()->write($vue->render(3));
+           } else {
+               $rs ->getBody()->write($vue->render(6));
+               //$login = "Mauvais login/mot de passe ";
            }
+       } else {
+           $rs ->getBody()->write($vue->render(6));
+          // $login = "Mauvais login/Mot de passe";
        }
-        $vue = new VueUtilisateur(['login' => $login], $this->container);
-        $rs ->getBody()->write($vue->render(3));
+
+
         return $rs;
     }
 

@@ -28,13 +28,16 @@ $app->post('/connect', \mywishlist\controller\Utilisateur::class.':authUtilisate
 $app->post('/register', \mywishlist\controller\Utilisateur::class.':creerUtilisateur')->setName('register');
 
 $app->get('/deconnect', \mywishlist\controller\Utilisateur::class.':deconnect')->setName('deconnexion');
+
+$app->get('/listes', \mywishlist\controller\Liste::class.':formListe')->setName('formListe');
+$app->get('/showlistes', \mywishlist\controller\Liste::class.':afficherListe')->setName('showListe');
 $app->run();
 
 
 
 
 /**
-$list = \mywishlist\model\Liste::all();
+$list = \mywishlist\model\VueListe::all();
 foreach ($list as $e){
     print($e->no . "<br>");
     print($e->titre. "<br>");

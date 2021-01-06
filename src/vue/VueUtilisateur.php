@@ -57,18 +57,27 @@ class VueUtilisateur extends Vue  {
                     break;
                 }
                 case 3 : {
-                    $content = '<h2> Bienvenue </h2> ' . $this->tab['login'];
+                    $content = '<h2 style = color:blue> Bienvenue ' . $this->tab['login'] .'</h2>';
                     break;
                 }
                 case 4 : {
-                    $content = '<h2> Vous êtes enregistré </h2>' . $this->tab['login'];
+                    $content = '<h2 style = color:blue> Vous êtes enregistré ' . $this->tab['login'] . '</h2>' ;
                     break;
                 }
                 case 5 : {
-                    $content = '<h2> Vous etes Déconnecté <h2>';
+                    $content = '<h2 style = color:blue> Vous etes Déconnecté <h2>';
                     $content .= $this->ConnectionForm();
                     break;
-
+                }
+                case 6 : {
+                    $content = '<h2 style = color:#ff0000> Login ou mot de passe incorrect, veuillez réessayer</h2>';
+                    $content .= $this->ConnectionForm();
+                    break;
+                }
+                case 7 : {
+                    $vue = new VueListe($this->tab, $this->container);
+                    $content = $vue->afficherAllListes();
+                    break;
                 }
             }
 
@@ -76,6 +85,8 @@ class VueUtilisateur extends Vue  {
             $url_connection = $this->container->router->pathFor( 'connect' );
             $url_register = $this->container->router->pathFor( 'register' );
             $url_deconnexion = $this->container->router->pathFor('deconnexion');
+            $url_formListe = $this->container->router->pathFor('formListe');
+            $url_showlistes = $this->container->router->pathFor('showListe');
 
             $html = <<<aaa
 
@@ -92,6 +103,9 @@ class VueUtilisateur extends Vue  {
 				<li><a href="$url_connection">Connection</a></li>
 				<li><a href="$url_register">Si vous n'avez pas de compte, enregistrez vous</a></li>
 				<li><a href = "$url_deconnexion"> Déconnexion</a></li>
+				<li><a href ="$url_formListe" > Ajouter une nouvelle liste</a></li>
+				<li><a href ="$url_showlistes" >Afficher les listes disponibles</a></li>
+				
 			</ul>
 		</nav>
     $content
@@ -99,8 +113,6 @@ class VueUtilisateur extends Vue  {
 </html>
 aaa;
             return $html;
-
-
     }
 
 }
