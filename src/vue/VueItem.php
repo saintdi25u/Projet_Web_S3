@@ -9,15 +9,16 @@ class VueItem extends Vue{
     }
 
     public function creerFormItem(){
+        $url_create = $this->container->router->pathFor('createItem');
         echo <<<eze
         <h3> Creation d'un item </h3>
-        <form action = "" method="post">
-         ID de l'item : <input type ="number" name = "liste_id" >
-         Nom de l'item : <input type = "text" name = "nom" >
+        <form action = "$url_create" method="post">
+         ID de la liste a inserer : <input type ="number" name = "liste_id" required >
+         Nom de l'item : <input type = "text" name = "nom" required >
          Description de l'item : <input type = "text" name="description">
          Image : <input type ="text" name = "img">
          URL : <input type = "url" name = "url">
-         Tarif : <input type = "number" name = "tarif">
+         Tarif : <input type = "number" name = "tarif" required>
          <input type = "submit" value="Créer">
         </form>
         eze;
@@ -35,7 +36,7 @@ class VueItem extends Vue{
     public function afficherAllItem() {
         $html = '';
         foreach($this->tab as $item){
-            $html .= "<li > Nom : {$item['nom']} <br>   Descrpition : {$item['descr']} <br>    Prix :{$item['tarif']}€ <br> <br> </li>";
+            $html .= "<li > ID : {$item['id']} <br> Nom : {$item['nom']} <br>   Descrpition : {$item['descr']} <br>    Prix :{$item['tarif']}€ <br> <br> </li>";
         }
         $html = "<ulstyle = list-style: none>$html</ul>";
         return $html;
@@ -83,8 +84,8 @@ class VueItem extends Vue{
 				<li><a href = "$url_deconnexion"> Déconnexion</a></li>
 				<li><a href ="$url_formListe" >Ajouter une liste</a></li>
 			    <li><a href ="$url_showlistes" >Afficher les listes disponibles</a></li>
-			    <li><a href ="$url_showItem" >Afficher l'item</a></li>
-			     <li><a href ="$url_showAllItem" >Afficher l'item</a></li>
+			    <li><a href ="$url_showItem" >Afficher un item par son ID</a></li>
+			     <li><a href ="$url_showAllItem" >Afficher tous les items</a></li>
 			    
 			</ul>
 		</nav>

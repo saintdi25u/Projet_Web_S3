@@ -19,10 +19,10 @@ namespace mywishlist\vue;
          echo <<<FIN
     <h2> Creation d'une nouvelle VueListe </h2>
     <form action ="$url_listes" method = "post">
-    User_ID de la liste : <input type = "number" name = "user_id" >
+    User_ID de la liste : <input type = "number" name = "user_id" required >
     Titre de la liste : <input type = "text" name = "titre" required>
-    Description de la liste : <input type = text name = "description">
-    Expiration de la liste : <input type = "date" required name = "expiration">
+    Description de la liste : <input type = text name = "description" required >
+    Expiration de la liste : <input type = "date" required name = "expiration" required >
     <input type = "submit" value="Créer">
 </form>
 FIN;

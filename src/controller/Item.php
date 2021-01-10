@@ -15,7 +15,13 @@ class Item {
         $this->container = $container;
     }
 
-    public function afficherItem(Request $rq, Response $rs, $args ){
+    public function formItem(Request $rq, Response $rs , $args) : Response{
+        $vue = new VueItem([], $this->container);
+        $rs->getBody()->write($vue ->render(0));
+        return $rs;
+    }
+
+    public function afficherItem(Request $rq, Response $rs, $args ) : Response{
         $item = \mywishlist\model\Item::where('id', '=', $args['id'])->first();
         $vue = new VueItem([$item->toArray()], $this->container);
         $rs ->getBody()->write($vue->render(1));
@@ -29,24 +35,30 @@ class Item {
         return $rs;
 
     }
-/**
-    public function creerItem(){
-        $v = new \mywishlist\vue\VueItem();
-        $v ->render();
-    }
- * */
+
+    public function createItem(Request $rq, Response $rs, $args) : Response{
+      $post=  $rq->getParsedBody();
+      $model = new \mywishlist\model\Item();
+      $liste_id = filter_var($post['liste_id'], FILTER_SANITIZE_STRING);
+      $nom = filter_var($post['nom'], FILTER_SANITIZE_STRING);
+      $desc = filter_var($post['description'], FILTER_SANITIZE_STRING);
+      $img =filter_var($post['img'], FILTER_SANITIZE_STRING);
+      $url = filter_var($post['url'], FILTER_SANITIZE_STRING);
+      $tarif = filter_var($post['tarif'], FILTER_SANITIZE_STRING);
+
+      $model->liste_id = $liste_id;
+      $model ->nom = $nom;
+      $model ->descr =$desc;
+      $model ->img = $img;
+      $model ->url = $url;
+      $model ->tarif = $tarif;
+      $model ->save();
+
+      $vue = new VueItem([], $this->container);
+      $rs->getBody()->write($vue->render(0));
+      return $rs;
 
 
 
-    public function enregistrerItem(){
-        $model = new \mywishlist\model\Item();
-        $model->liste_id = $_POST['liste_id'];
-        $model->nom = $_POST['nom'];
-        $model->descr = $_POST['description'];
-        $model ->img = $_POST['img'];
-        $model -> url = $_POST['url'];
-        $model ->tarif = $_POST['tarif'];
-
-        $model ->save();
     }
 }

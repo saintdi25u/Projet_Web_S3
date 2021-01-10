@@ -99,6 +99,7 @@ class VueUtilisateur extends Vue  {
             $url_showlistes = $this->container->router->pathFor('showListe');
             $url_showItem = $this->container->router->pathFor('showItem', ['id' => 2]);
             $url_showAllItem = $this->container->router->pathFor('showAllItem');
+            $url_createItem = $this->container->router->pathFor('createItem');
 
             $html = <<<aaa
 
@@ -119,7 +120,8 @@ class VueUtilisateur extends Vue  {
 				<li><a href ="$url_showlistes" >Afficher les listes disponibles</a></li>
 				<li><a href ="$url_showItem" >Afficher un item par son ID</a></li>
 				<li><a href ="$url_showAllItem" >Afficher les Item disponibles</a></li>
-				
+				<li><a href ="$url_createItem" >Créer/Ajouter un item a une liste</a></li>
+								
 				
 			</ul>
 		</nav>
