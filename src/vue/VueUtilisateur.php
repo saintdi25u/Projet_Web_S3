@@ -79,6 +79,16 @@ class VueUtilisateur extends Vue  {
                     $content = $vue->afficherAllListes();
                     break;
                 }
+                case 8 : {
+                    $vue = new VueItem($this->tab, $this->container);
+                    $content = $vue->afficherItemParId();
+                    break;
+                }
+                case 9 : {
+                    $vue = new VueItem($this->tab, $this->container);
+                    $content = $vue->afficherAllItem();
+                    break;
+                }
             }
 
             $url_acceuil = $this->container->router->pathFor( 'racine' );
@@ -87,6 +97,8 @@ class VueUtilisateur extends Vue  {
             $url_deconnexion = $this->container->router->pathFor('deconnexion');
             $url_formListe = $this->container->router->pathFor('formListe');
             $url_showlistes = $this->container->router->pathFor('showListe');
+            $url_showItem = $this->container->router->pathFor('showItem', ['id' => 2]);
+            $url_showAllItem = $this->container->router->pathFor('showAllItem');
 
             $html = <<<aaa
 
@@ -105,6 +117,9 @@ class VueUtilisateur extends Vue  {
 				<li><a href = "$url_deconnexion"> Déconnexion</a></li>
 				<li><a href ="$url_formListe" > Ajouter une nouvelle liste</a></li>
 				<li><a href ="$url_showlistes" >Afficher les listes disponibles</a></li>
+				<li><a href ="$url_showItem" >Afficher un item par son ID</a></li>
+				<li><a href ="$url_showAllItem" >Afficher les Item disponibles</a></li>
+				
 				
 			</ul>
 		</nav>

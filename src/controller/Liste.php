@@ -14,18 +14,30 @@ class Liste {
         $this->container = $container;
     }
 
-    /**
-    public function enregistrerListe()
+
+    public function creerNouvelleListe(Request $rq, Response $rs, $args)
     {
-        $model = new \mywishlist\model\Liste();
-        $model->user_id = $_POST['user_id'];
-        $model->titre = $_POST['titre'];
-        $model->description = $_POST['description'];
-        $model->expiration = $_POST['expiration'];
-        $model->token = dechex(random_int(0, 0xFFFFFFF));
-        $model->save();
+        $post = $rq->getParsedBody();
+        $list = new \mywishlist\model\Liste();
+        $user_id = filter_var($post['user_id'], FILTER_SANITIZE_STRING);
+        $titre = filter_var($post['titre'], FILTER_SANITIZE_STRING);
+        $description = filter_var($post['description'], FILTER_SANITIZE_STRING);
+        $expiration = filter_var($post['expiration'], FILTER_SANITIZE_STRING);
+        $token =  dechex(random_int(0, 0xFFFFFFF));
+        $list->user_id = $user_id;
+        $list->titre = $titre;
+        $list ->description = $description;
+        $list->expiration = $expiration;
+        $list ->token = $token;
+        $list->save();
+
+        $vue = new VueListe([], $this->container);
+        $rs->getBody()->write($vue ->render(0));
+        return $rs;
     }
-*/
+
+
+
     public function formListe(Request $rq, Response $rs, $args) : Response {
         // pour afficher le formulaire liste
         $vue = new VueListe( [] , $this->container ) ;

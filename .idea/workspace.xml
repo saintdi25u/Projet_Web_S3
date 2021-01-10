@@ -21,10 +21,12 @@
   <component name="ChangeListManager">
     <list default="true" id="11838f2f-a87a-484b-b157-d0dcdf08f945" name="Default Changelist" comment="Auth">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/controller/Item.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/controller/Item.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/controller/Liste.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/controller/Liste.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/controller/Utilisateur.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/controller/Utilisateur.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/index.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/vue/Liste.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/vue/VueListe.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/vue/Item.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/vue/VueItem.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/vue/VueListe.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/vue/VueListe.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/vue/VueUtilisateur.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/vue/VueUtilisateur.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -101,7 +103,10 @@
       <workItem from="1609747469778" duration="444000" />
       <workItem from="1609764264184" duration="9453000" />
       <workItem from="1609874156151" duration="2976000" />
-      <workItem from="1609938069345" duration="14420000" />
+      <workItem from="1609938069345" duration="15614000" />
+      <workItem from="1610015076666" duration="464000" />
+      <workItem from="1610117687073" duration="95000" />
+      <workItem from="1610281208663" duration="8775000" />
     </task>
     <task id="LOCAL-00001" summary="Auth">
       <created>1609771144539</created>
@@ -137,10 +142,10 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="764" y="188" key="#com.intellij.ide.util.MemberChooser/0.0.1920.1040/-1920.-26.1920.1040@0.0.1920.1040" timestamp="1609874792616" />
-    <state x="620" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog" timestamp="1609963865218">
+    <state x="620" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog" timestamp="1610282213660">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="620" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog/0.0.1920.1040/-1920.-26.1920.1040@0.0.1920.1040" timestamp="1609963865218" />
+    <state x="620" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog/0.0.1920.1040/-1920.-26.1920.1040@0.0.1920.1040" timestamp="1610282213660" />
     <state x="740" y="275" key="FileChooserDialogImpl" timestamp="1609161018585">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -149,6 +154,10 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="794" y="439" key="NewPhpFileDialog/0.0.1920.1040/-1920.-26.1920.1040@0.0.1920.1040" timestamp="1609594555478" />
+    <state width="498" height="446" key="SwitcherDM" timestamp="1610289246902">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="498" height="446" key="SwitcherDM/0.0.1920.1040/-1920.-26.1920.1040@0.0.1920.1040" timestamp="1610289246902" />
     <state x="552" y="249" key="Vcs.Push.Dialog.v2" timestamp="1609771150318">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>

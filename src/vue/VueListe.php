@@ -31,9 +31,9 @@ FIN;
      public function afficherAllListes() {
          $html = '';
          foreach($this->tab as $liste){
-             $html .= "<li>{$liste['titre']}''{$liste['description']}</li>";
+             $html .= "<li >{$liste['titre']}''{$liste['description']}</li>";
          }
-         $html = "<ul>$html</ul>";
+         $html = "<ulstyle = list-style: none>$html</ul>";
          return $html;
      }
 

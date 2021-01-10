@@ -29,8 +29,13 @@ $app->post('/register', \mywishlist\controller\Utilisateur::class.':creerUtilisa
 
 $app->get('/deconnect', \mywishlist\controller\Utilisateur::class.':deconnect')->setName('deconnexion');
 
+$app->post('/listes', \mywishlist\controller\Liste::class.':creerNouvelleListe')->setName('formListe');
 $app->get('/listes', \mywishlist\controller\Liste::class.':formListe')->setName('formListe');
+
 $app->get('/showlistes', \mywishlist\controller\Liste::class.':afficherListe')->setName('showListe');
+
+$app->get('/item/{id}', \mywishlist\controller\Item::class.':afficherItem')->setName('showItem');
+$app->get('/allItem', \mywishlist\controller\Item::class.':afficherAllItem')->setName('showAllItem');
 $app->run();
 
 

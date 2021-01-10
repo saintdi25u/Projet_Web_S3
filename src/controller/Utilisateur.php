@@ -64,11 +64,9 @@ class Utilisateur{
                $rs ->getBody()->write($vue->render(3));
            } else {
                $rs ->getBody()->write($vue->render(6));
-               //$login = "Mauvais login/mot de passe ";
            }
        } else {
            $rs ->getBody()->write($vue->render(6));
-          // $login = "Mauvais login/Mot de passe";
        }
 
 
