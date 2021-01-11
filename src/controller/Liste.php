@@ -16,27 +16,28 @@ class Liste {
 
 
     public function creerNouvelleListe(Request $rq, Response $rs, $args)
-    {
-        $post = $rq->getParsedBody();
-        $list = new \mywishlist\model\Liste();
-        $user_id = filter_var($post['user_id'], FILTER_SANITIZE_STRING);
-        $titre = filter_var($post['titre'], FILTER_SANITIZE_STRING);
-        $description = filter_var($post['description'], FILTER_SANITIZE_STRING);
-        $expiration = filter_var($post['expiration'], FILTER_SANITIZE_STRING);
-        $token =  dechex(random_int(0, 0xFFFFFFF));
-        $list->user_id = $user_id;
-        $list->titre = $titre;
-        $list ->description = $description;
-        $list->expiration = $expiration;
-        $list ->token = $token;
-        $list->save();
-
-        $vue = new VueListe([], $this->container);
-        $rs->getBody()->write($vue ->render(0));
+    {   $vue = new VueListe([], $this->container);
+        if(Utilisateur::checkAccessRights(1)){
+            $post = $rq->getParsedBody();
+            $list = new \mywishlist\model\Liste();
+            $user_id = filter_var($post['user_id'], FILTER_SANITIZE_STRING);
+            $titre = filter_var($post['titre'], FILTER_SANITIZE_STRING);
+            $description = filter_var($post['description'], FILTER_SANITIZE_STRING);
+            $expiration = filter_var($post['expiration'], FILTER_SANITIZE_STRING);
+            $token =  dechex(random_int(0, 0xFFFFFFF));
+            $list->user_id = $user_id;
+            $list->titre = $titre;
+            $list ->description = $description;
+            $list->expiration = $expiration;
+            $list ->token = $token;
+            $list->save();
+            $rs->getBody()->write($vue ->render(0));
+        } else {
+            $rs->getBody()->write($vue ->render(2));
+        }
         return $rs;
+
     }
-
-
 
     public function formListe(Request $rq, Response $rs, $args) : Response {
         // pour afficher le formulaire liste

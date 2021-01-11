@@ -31,7 +31,7 @@ FIN;
      public function afficherAllListes() {
          $html = '';
          foreach($this->tab as $liste){
-             $html .= "<li >{$liste['titre']}''{$liste['description']}</li>";
+             $html .= "<li >{$liste['titre']}''{$liste['description']} ' ' {$liste['no']}'</li>";
          }
          $html = "<ulstyle = list-style: none>$html</ul>";
          return $html;
@@ -47,7 +47,10 @@ FIN;
              case 1 : {
                  $content = $this->afficherAllListes();
                  break;
-             }
+             }case 2 : {
+                 $content = "<h2> Vous n'avez pas les droits</h2>";
+                 break;
+         }
          }
 
          $url_acceuil = $this->container->router->pathFor( 'racine' );

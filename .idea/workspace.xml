@@ -22,6 +22,8 @@
     <list default="true" id="11838f2f-a87a-484b-b157-d0dcdf08f945" name="Default Changelist" comment="Auth">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/controller/Item.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/controller/Item.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/controller/Liste.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/controller/Liste.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/controller/Utilisateur.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/controller/Utilisateur.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/index.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/vue/VueItem.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/vue/VueItem.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/vue/VueListe.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/vue/VueListe.php" afterDir="false" />
@@ -105,7 +107,10 @@
       <workItem from="1610015076666" duration="464000" />
       <workItem from="1610117687073" duration="95000" />
       <workItem from="1610281208663" duration="8861000" />
-      <workItem from="1610301425154" duration="2159000" />
+      <workItem from="1610301425154" duration="2398000" />
+      <workItem from="1610355247680" duration="171000" />
+      <workItem from="1610378018849" duration="6217000" />
+      <workItem from="1610384425716" duration="433000" />
     </task>
     <task id="LOCAL-00001" summary="Auth">
       <created>1609771144539</created>

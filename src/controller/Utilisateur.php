@@ -53,50 +53,65 @@ class Utilisateur{
 
 
     public function authUtilisateur(Request $rq, Response $rs, $args) {
-       $post = $rq->getParsedBody();
-       $login = filter_var($post['nom-connect'], FILTER_SANITIZE_STRING);
-       $mdp = filter_var($post['password-connect'], FILTER_SANITIZE_STRING);
-       $user = \mywishlist\model\Utilisateur::where('username' ,'=', $login)->first();
-       $vue = new VueUtilisateur(['login' => $login], $this->container);
-       if(!is_null($user)){
-           if(password_verify($mdp, $user->passwd)){
-               $this->loadProfile($user->uid);
-               $rs ->getBody()->write($vue->render(3));
-           } else {
-               $rs ->getBody()->write($vue->render(6));
-           }
-       } else {
-           $rs ->getBody()->write($vue->render(6));
-       }
 
-
+            $post = $rq->getParsedBody();
+            $login = filter_var($post['nom-connect'], FILTER_SANITIZE_STRING);
+            $mdp = filter_var($post['password-connect'], FILTER_SANITIZE_STRING);
+            $user = \mywishlist\model\Utilisateur::where('username', '=', $login)->first();
+            $vue = new VueUtilisateur(['login' => $login], $this->container);
+        if(!isset($_SESSION['user'])) {
+            if (!is_null($user)) {
+                if (password_verify($mdp, $user->passwd)) {
+                    $this->loadProfile($user->uid);
+                    $rs->getBody()->write($vue->render(3));
+                } else {
+                    $rs->getBody()->write($vue->render(6));
+                }
+            } else {
+                $rs->getBody()->write($vue->render(6));
+            }
+        } else {
+            $rs->getBody()->write($vue->render(11));
+        }
         return $rs;
-    }
+        }
 
-    public function deconnect(Request $rq, Response $rs, $args) {
-        session_destroy();
-        $_SESSION = [];
-        $vue = new VueUtilisateur([], $this->container);
-        $rs->getBody()->write($vue->render(5));
+
+
+    public function deconnect(Request $rq, Response $rs, $args) : Response {
+        if(isset($_SESSION['user'])){
+            session_destroy();
+            $_SESSION['user'] = [];
+            $vue = new VueUtilisateur([], $this->container);
+            $rs->getBody()->write($vue->render(5));
+        } else {
+            $vue = new VueUtilisateur([], $this->container);
+            $rs->getBody()->write($vue->render(10));
+        }
+        return $rs;
     }
 
 
 
     public function loadProfile($uid){
-        session_destroy();
         session_start();
         $user = \mywishlist\model\Utilisateur::where('uid' ,'=', $uid) ->first();
         $info = array (
             'username' => $user->username,
             'userid' => $uid,
-            'auth-level' => 1000
+            'auth-level' => 1
         );
-        $_SESSION['login'] = $info;
+        $_SESSION['user'] = $info;
+        var_dump($_SESSION['user']);
     }
 
-    public function checkAccessRights($required) : bool {
-        if($_SESSION['login']['auth-level'] < $required){
-            return true;
+    public static function checkAccessRights($required) : bool {
+        if(isset($_SESSION['user'])){
+            if($_SESSION['user']['auth-level'] === $required){
+                return true;
+            }
+        } else  {
+            return false;
         }
     }
 

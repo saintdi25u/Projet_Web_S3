@@ -44,28 +44,38 @@ class VueItem extends Vue{
 
 
 
-    public function render (int $select) : string {
-        switch($select){
-            case 0 : {
+    public function render (int $select) : string
+    {
+        switch ($select) {
+            case 0 :
+            {
                 $content = $this->creerFormItem();
                 break;
             }
-            case 1 : {
+            case 1 :
+            {
                 $content = $this->afficheritemParId();
                 break;
             }
-            case 2 : {
+            case 2 :
+            {
                 $content = $this->afficherAllItem();
                 break;
             }
+            case 3 :
+            {
+                $content = "<h2> Vous n'avez pas les droits</h2>";
+                break;
+            }
         }
+
 
         $url_acceuil = $this->container->router->pathFor( 'racine' );
         $url_connection = $this->container->router->pathFor( 'connect' );
         $url_deconnexion = $this->container->router->pathFor('deconnexion');
         $url_showlistes = $this->container->router->pathFor('showListe');
         $url_formListe = $this->container->router->pathFor('formListe');
-        $url_showItem = $this->container->router->pathFor('showItem', ['id' => 2]);
+        $url_showItem = $this->container->router->pathFor('showItem', ['id' => 1]);
         $url_showAllItem = $this->container->router->pathFor('showAllItem');
 
         $html = <<<aaa

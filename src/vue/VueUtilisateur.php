@@ -89,6 +89,15 @@ class VueUtilisateur extends Vue  {
                     $content = $vue->afficherAllItem();
                     break;
                 }
+                case 10 : {
+                    $content = "<h2> Vous etes deja déconnecté</h2>";
+                    break;
+                }
+                case 11 : {
+                    $content = '<h2 style = color:blue> Vous etes deja connecté avec le profil :  ' . $this->tab['login'] .'</h2>';
+                    break;
+                }
+
             }
 
             $url_acceuil = $this->container->router->pathFor( 'racine' );
@@ -121,8 +130,7 @@ class VueUtilisateur extends Vue  {
 				<li><a href ="$url_showItem" >Afficher un item par son ID</a></li>
 				<li><a href ="$url_showAllItem" >Afficher les Item disponibles</a></li>
 				<li><a href ="$url_createItem" >Créer/Ajouter un item a une liste</a></li>
-								
-				
+
 			</ul>
 		</nav>
     $content

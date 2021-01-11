@@ -38,7 +38,7 @@ $app->get('/item/{id}', \mywishlist\controller\Item::class.':afficherItem')->set
 $app->get('/allItem', \mywishlist\controller\Item::class.':afficherAllItem')->setName('showAllItem');
 
 $app->get('/item', \mywishlist\controller\Item::class.':formItem')->setName('createItem');
-$app->post('/item', \mywishlist\controller\Item::class.':formItem')->setName('createItem');
+$app->post('/item', \mywishlist\controller\Item::class.':createItem')->setName('createItem');
 $app->run();
 
 
