@@ -33,14 +33,33 @@ class VueItem extends Vue{
         return $html;
     }
 
+
     public function afficherAllItem() {
         $html = '';
         foreach($this->tab as $item){
-            $html .= "<li > ID : {$item['id']} <br> Nom : {$item['nom']} <br>   Descrpition : {$item['descr']} <br>    Prix :{$item['tarif']}€ <br> <br> </li>";
+            $html .= "<li > ID : {$item['id']} <br> Nom : {$item['nom']} <br>   Description : {$item['descr']} <br>    Prix :{$item['tarif']}€ <br> <br> </li>";
         }
         $html = "<ulstyle = list-style: none>$html</ul>";
         return $html;
     }
+
+    public function formMessageItem(){
+        $url_reserve = $this->container->router->pathFor('reserve');
+        $html = <<<FIN
+            <h2> Reserver un item</h2>
+            <form action = "$url_reserve" method="post">
+            Entrer l'ID de l'item que vous souhaitez réserver : <input type = "number" name = "id_item" required> <br>
+           <br> Entrer votre nom <input type = "text" name = "nomParticipant" required><br>
+           <br> Entrer votre message <input type="text" name="message" required>
+            <input type="submit" value= "Reserver">
+            </form>
+        FIN;
+        return $html;
+
+    }
+
+
+
 
 
 
@@ -67,6 +86,10 @@ class VueItem extends Vue{
                 $content = "<h2> Vous n'avez pas les droits</h2>";
                 break;
             }
+            case 4 : {
+                $content = $this->reservationSucces();
+                break;
+            }
         }
 
 
@@ -77,6 +100,7 @@ class VueItem extends Vue{
         $url_formListe = $this->container->router->pathFor('formListe');
         $url_showItem = $this->container->router->pathFor('showItem', ['id' => 1]);
         $url_showAllItem = $this->container->router->pathFor('showAllItem');
+
 
         $html = <<<aaa
 

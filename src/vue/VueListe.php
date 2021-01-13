@@ -30,10 +30,28 @@ FIN;
 
      public function afficherAllListes() {
          $html = '';
+         $id = 1;
          foreach($this->tab as $liste){
-             $html .= "<li >{$liste['titre']}''{$liste['description']} ' ' {$liste['no']}'</li>";
+             $url = $this->container->router->pathFor('showContenuListe', ['no' => $id]);
+             $html .= "<li >{$liste['titre']}''{$liste['description']} </li>";
+             $html .= "<a href = '$url'>Voir le détail de la liste </a> ";
+             $id++;
          }
          $html = "<ulstyle = list-style: none>$html</ul>";
+         return $html;
+     }
+
+
+     public function afficherUneListeAvecContenu(){
+         $liste = $this->tab[0];
+         $html = "<h2> Liste  : {$liste['no']} </h2>";
+         $html .= "<h2> Titre :  {$liste['titre']} </h2>";
+         $html .= "<h2> Description : {$liste['description']} </h2>";
+         return $html;
+     }
+
+     public function reservationSucces(){
+         $html = "<h2> Vous avez bien reserver l'item</h2>";
          return $html;
      }
 
@@ -50,31 +68,43 @@ FIN;
              }case 2 : {
                  $content = "<h2> Vous n'avez pas les droits</h2>";
                  break;
+             }
+             case 3 : {
+             $content = $this->afficherUneListeAvecContenu();
+             break;
+             }
+             case 4 : {
+                 $content = $this->reservationSucces();
+                 break;
+             }
          }
-         }
+
 
          $url_acceuil = $this->container->router->pathFor( 'racine' );
          $url_connection = $this->container->router->pathFor( 'connect' );
          $url_deconnexion = $this->container->router->pathFor('deconnexion');
+
          $url_showlistes = $this->container->router->pathFor('showListe');
          $url_formListe = $this->container->router->pathFor('formListe');
+         $url_showListeParNo = $this->container->router->pathFor('showListeParNo', ['no' => 1]);
 
          $html = <<<aaa
 
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Acceuil</title>
+    <title>Acceuil</title> 
   </head>
   <body>
 		<h1><a href="$url_acceuil">Wish List</a></h1>
 		<nav>
 			<ul>
-				<li><a href="$url_acceuil">Accueil</a></li>
+				<li><a href="$url_acceuil">Accueil</a></li> 
 				<li><a href="$url_connection">Connection</a></li>
 				<li><a href = "$url_deconnexion"> Déconnexion</a></li>
 				<li><a href ="$url_formListe" >Ajouter une liste</a></li>
 			    <li><a href ="$url_showlistes" >Afficher les listes disponibles</a></li>
+			    <li><a href ="$url_showListeParNo" >Afficher une liste par son numéro</a></li>
 			</ul>
 		</nav>
     $content

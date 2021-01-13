@@ -16,14 +16,20 @@
         <item name="GROUP_NODE:origin" type="e8cecc67:BranchNodeDescriptor" />
       </path>
     </expand>
-    <select />
+    <select>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="GROUP_NODE:origin" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="BRANCH:origin/master" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+    </select>
   </component>
   <component name="ChangeListManager">
     <list default="true" id="11838f2f-a87a-484b-b157-d0dcdf08f945" name="Default Changelist" comment="Auth">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/controller/Item.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/controller/Item.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/controller/Liste.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/controller/Liste.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/controller/Utilisateur.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/controller/Utilisateur.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/index.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/vue/VueItem.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/vue/VueItem.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/vue/VueListe.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/vue/VueListe.php" afterDir="false" />
@@ -110,7 +116,9 @@
       <workItem from="1610301425154" duration="2398000" />
       <workItem from="1610355247680" duration="171000" />
       <workItem from="1610378018849" duration="6217000" />
-      <workItem from="1610384425716" duration="433000" />
+      <workItem from="1610384425716" duration="1142000" />
+      <workItem from="1610491310507" duration="2546000" />
+      <workItem from="1610527968367" duration="15033000" />
     </task>
     <task id="LOCAL-00001" summary="Auth">
       <created>1609771144539</created>
@@ -130,7 +138,24 @@
       <map>
         <entry key="MAIN">
           <value>
-            <State />
+            <State>
+              <option name="CUSTOM_BOOLEAN_PROPERTIES">
+                <map>
+                  <entry key="Show.Git.Branches" value="false" />
+                </map>
+              </option>
+              <option name="FILTERS">
+                <map>
+                  <entry key="branch">
+                    <value>
+                      <list>
+                        <option value="origin/master" />
+                      </list>
+                    </value>
+                  </entry>
+                </map>
+              </option>
+            </State>
           </value>
         </entry>
       </map>

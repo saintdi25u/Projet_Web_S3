@@ -103,6 +103,8 @@ class VueUtilisateur extends Vue  {
             $url_acceuil = $this->container->router->pathFor( 'racine' );
             $url_connection = $this->container->router->pathFor( 'connect' );
             $url_register = $this->container->router->pathFor( 'register' );
+            //$url_voirListe = $this->container->router->pathFor('partieListe');
+
             $url_deconnexion = $this->container->router->pathFor('deconnexion');
             $url_formListe = $this->container->router->pathFor('formListe');
             $url_showlistes = $this->container->router->pathFor('showListe');
@@ -124,7 +126,7 @@ class VueUtilisateur extends Vue  {
 				<li><a href="$url_acceuil">Accueil</a></li>
 				<li><a href="$url_connection">Connection</a></li>
 				<li><a href="$url_register">Si vous n'avez pas de compte, enregistrez vous</a></li>
-				<li><a href = "$url_deconnexion"> Déconnexion</a></li>
+				<li><a href = "$url_deconnexion"> Déconnexion</a></li>                
 				<li><a href ="$url_formListe" > Ajouter une nouvelle liste</a></li>
 				<li><a href ="$url_showlistes" >Afficher les listes disponibles</a></li>
 				<li><a href ="$url_showItem" >Afficher un item par son ID</a></li>

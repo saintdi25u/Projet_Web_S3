@@ -39,9 +39,16 @@ $app->get('/allItem', \mywishlist\controller\Item::class.':afficherAllItem')->se
 
 $app->get('/item', \mywishlist\controller\Item::class.':formItem')->setName('createItem');
 $app->post('/item', \mywishlist\controller\Item::class.':createItem')->setName('createItem');
+
+$app->get('/liste/{no}', \mywishlist\controller\Liste::class.":afficherListeParNo") ->setName('showListeParNo');
+$app->get('/liste/contenu/{no}', \mywishlist\controller\Item::class.":afficherContenuListe") ->setName('showContenuListe');
+
+$app->get('/reserve', \mywishlist\controller\Item::class.":afficherFormParticipant")->setName('reserve');
+$app->post('/reserve', \mywishlist\controller\Item::class.":insererParticipant")->setName('reserve');
 $app->run();
 
 
+// Revoir le parrtage d'URL pour création d'un item
 
 
 /**

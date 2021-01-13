@@ -4,6 +4,7 @@
 
 
 use mywishlist\vue\VueItem;
+use mywishlist\vue\VueListe;
 use \Psr\Http\Message\ServerRequestInterface as Request;
 use  \Psr\Http\Message\ResponseInterface as Response;
 
@@ -33,7 +34,6 @@ class Item {
         $vue = new VueItem($Allitem->toArray(), $this->container);
         $rs->getBody()->write($vue ->render(2));
         return $rs;
-
     }
 
     public function createItem(Request $rq, Response $rs, $args) : Response{
@@ -61,4 +61,41 @@ class Item {
         }
         return $rs;
     }
+
+    public function afficherContenuListe(Request $rq, Response $rs, $args){
+        $item = \mywishlist\model\Item::where('liste_id', '=', $args['no'])->get();
+        $rs ->getBody()->write(" <h2> Contenu de la Liste :</h2> ");
+        foreach($item as $i){
+            $rs ->getBody()->write("<p> ID : {$i->id} </p>");
+            $rs ->getBody()->write("<p> Nom : {$i->nom} </p>");
+            $rs ->getBody()->write("<p> Description : {$i->descr} </p>");
+        }
+        $vue = new VueItem([], $this->container);
+        $rs ->getBody()->write($vue->formMessageItem());
+        return $rs;
+    }
+
+
+    public function afficherFormParticipant(Request $rq, Response $rs, $args){
+        $vue= new VueItem([], $this->container);
+        $rs->getBody()->write($vue->formMessageItem());
+        return $rs;
+    }
+
+    public function insererParticipant(Request $rq, Response $rs, $args) {
+        $post = $rq->getParsedBody();
+        $i = \mywishlist\model\Item::where('id', '=', filter_var($post['id_item'])) -> first();
+        $participant = $i->participant;
+        if(!is_null($participant)){
+            $item = \mywishlist\model\Item::where('id', '=', filter_var($post['id_item']))->update(['message' =>  filter_var($post['message'])]);
+            $item = \mywishlist\model\Item::where('id', '=', filter_var($post['id_item']))->update(['participant' =>  filter_var($post['nomParticipant'])]);
+            $vue = new VueListe([], $this->container);
+            $rs ->getBody()->write($vue->render(4));
+
+        } else {
+            $rs ->getBody()->write("<h3>Cet Item est deja reservé</h3>");
+        }
+
+    }
+
 }
