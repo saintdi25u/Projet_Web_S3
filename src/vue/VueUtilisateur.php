@@ -65,7 +65,7 @@ class VueUtilisateur extends Vue  {
                     break;
                 }
                 case 5 : {
-                    $content = '<h2 style = color:blue> Vous etes Déconnecté <h2>';
+                    $content = '<h2 style = color:blue> Vous etes déconnecté <h2>';
                     $content .= $this->ConnectionForm();
                     break;
                 }
@@ -130,7 +130,7 @@ class VueUtilisateur extends Vue  {
 				<li><a href ="$url_formListe" > Ajouter une nouvelle liste</a></li>
 				<li><a href ="$url_showlistes" >Afficher les listes disponibles</a></li>
 				<li><a href ="$url_showItem" >Afficher un item par son ID</a></li>
-				<li><a href ="$url_showAllItem" >Afficher les Item disponibles</a></li>
+				<li><a href ="$url_showAllItem" >Afficher les item disponibles</a></li>
 				<li><a href ="$url_createItem" >Créer/Ajouter un item a une liste</a></li>
 
 			</ul>

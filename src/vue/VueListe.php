@@ -51,7 +51,7 @@ FIN;
      }
 
      public function reservationSucces(){
-         $html = "<h2> Vous avez bien reserver l'item</h2>";
+         $html = "<h2> Vous avez bien reservé l'item</h2>";
          return $html;
      }
 
@@ -66,7 +66,7 @@ FIN;
                  $content = $this->afficherAllListes();
                  break;
              }case 2 : {
-                 $content = "<h2> Vous n'avez pas les droits</h2>";
+                 $content = "<h2> Vous n'avez pas les droits pour effectuer cette action</h2>";
                  break;
              }
              case 3 : {

@@ -48,7 +48,7 @@ $app->post('/reserve', \mywishlist\controller\Item::class.":insererParticipant")
 $app->run();
 
 
-// Revoir le parrtage d'URL pour création d'un item
+// Revoir le partage d'URL pour création d'un item
 
 
 /**

@@ -83,7 +83,7 @@ class VueItem extends Vue{
             }
             case 3 :
             {
-                $content = "<h2> Vous n'avez pas les droits</h2>";
+                $content = "<h2> Vous n'avez pas les droits pour effectuer cette action</h2>";
                 break;
             }
             case 4 : {

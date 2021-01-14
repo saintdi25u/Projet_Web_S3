@@ -28,8 +28,6 @@
   <component name="ChangeListManager">
     <list default="true" id="11838f2f-a87a-484b-b157-d0dcdf08f945" name="Default Changelist" comment="Auth">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/controller/Item.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/controller/Item.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/controller/Liste.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/controller/Liste.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/index.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/vue/VueItem.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/vue/VueItem.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/vue/VueListe.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/vue/VueListe.php" afterDir="false" />
@@ -40,7 +38,7 @@
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="ComposerSettings" doNotAsk="true">
+  <component name="ComposerSettings" doNotAsk="true" synchronizationState="SYNCHRONIZE">
     <pharConfigPath>$PROJECT_DIR$/src/composer.json</pharConfigPath>
     <execution />
   </component>
@@ -85,6 +83,7 @@
   </component>
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_package_manager_path" value="npm" />
@@ -119,6 +118,7 @@
       <workItem from="1610384425716" duration="1142000" />
       <workItem from="1610491310507" duration="2546000" />
       <workItem from="1610527968367" duration="15033000" />
+      <workItem from="1610628364810" duration="309000" />
     </task>
     <task id="LOCAL-00001" summary="Auth">
       <created>1609771144539</created>
