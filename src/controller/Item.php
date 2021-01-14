@@ -62,15 +62,12 @@ class Item {
         return $rs;
     }
 
+
     public function afficherContenuListe(Request $rq, Response $rs, $args){
         $item = \mywishlist\model\Item::where('liste_id', '=', $args['no'])->get();
+        $vue = new VueItem($item, $this->container);
         $rs ->getBody()->write(" <h2> Contenu de la Liste :</h2> ");
-        foreach($item as $i){
-            $rs ->getBody()->write("<p> ID : {$i->id} </p>");
-            $rs ->getBody()->write("<p> Nom : {$i->nom} </p>");
-            $rs ->getBody()->write("<p> Description : {$i->descr} </p>");
-        }
-        $vue = new VueItem([], $this->container);
+        $rs->getBody()->write($vue->contenuItem());
         $rs ->getBody()->write($vue->formMessageItem());
         return $rs;
     }

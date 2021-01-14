@@ -45,7 +45,7 @@ FIN;
      public function afficherUneListeAvecContenu(){
          $liste = $this->tab[0];
          $html = "<h2> Liste  : {$liste['no']} </h2>";
-         $html .= "<h2> Titre :  {$liste['titre']} </h2>";
+         $html .= "<h2> Titre : {$liste['titre']} </h2>";
          $html .= "<h2> Description : {$liste['description']} </h2>";
          return $html;
      }
@@ -66,12 +66,12 @@ FIN;
                  $content = $this->afficherAllListes();
                  break;
              }case 2 : {
-                 $content = "<h2> Vous n'avez pas les droits pour effectuer cette action</h2>";
+                 $content = "<h2>Vous n'avez pas les droits pour effectuer cette action</h2>";
                  break;
              }
              case 3 : {
-             $content = $this->afficherUneListeAvecContenu();
-             break;
+                $content = $this->afficherUneListeAvecContenu();
+                 break;
              }
              case 4 : {
                  $content = $this->reservationSucces();
@@ -93,7 +93,7 @@ FIN;
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Acceuil</title> 
+    <title>Accueil</title> 
   </head>
   <body>
 		<h1><a href="$url_acceuil">Wish List</a></h1>
@@ -102,9 +102,9 @@ FIN;
 				<li><a href="$url_acceuil">Accueil</a></li> 
 				<li><a href="$url_connection">Connection</a></li>
 				<li><a href = "$url_deconnexion"> Déconnexion</a></li>
-				<li><a href ="$url_formListe" >Ajouter une liste</a></li>
-			    <li><a href ="$url_showlistes" >Afficher les listes disponibles</a></li>
-			    <li><a href ="$url_showListeParNo" >Afficher une liste par son numéro</a></li>
+				<li><a href ="$url_formListe">Ajouter une liste</a></li>
+			    <li><a href ="$url_showlistes">Afficher les listes disponibles</a></li>
+			    <li><a href ="$url_showListeParNo">Afficher une liste par son numéro</a></li>
 			</ul>
 		</nav>
     $content

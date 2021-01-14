@@ -58,6 +58,15 @@ class VueItem extends Vue{
 
     }
 
+    public function contenuItem(){
+        $html = '';
+        foreach($this->tab as $i){
+            $html .="<p> ID : {$i->id} </p>";
+            $html .="<p> Nom : {$i->nom} </p>";
+            $html .="<p> Description : {$i->descr} </p>";
+        }
+        return $html;
+    }
 
 
 
