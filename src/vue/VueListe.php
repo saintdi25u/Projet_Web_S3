@@ -77,13 +77,17 @@ FIN;
                  $content = $this->reservationSucces();
                  break;
              }
+
+             case 5 : {
+                 $content = "<p>Voici les fonctionalitées disponibles pour les listes</p>";
+                 break;
+             }
          }
 
 
          $url_acceuil = $this->container->router->pathFor( 'racine' );
          $url_connection = $this->container->router->pathFor( 'connect' );
          $url_deconnexion = $this->container->router->pathFor('deconnexion');
-
          $url_showlistes = $this->container->router->pathFor('showListe');
          $url_formListe = $this->container->router->pathFor('formListe');
          $url_showListeParNo = $this->container->router->pathFor('showListeParNo', ['no' => 1]);
@@ -96,11 +100,11 @@ FIN;
     <title>Accueil</title> 
   </head>
   <body>
-		<h1><a href="$url_acceuil">Wish List</a></h1>
+        <h1><a href="$url_acceuil">Wish List</a></h1>
+        <h1> Fonctionalitées pour les listes </h1>
 		<nav>
 			<ul>
 				<li><a href="$url_acceuil">Accueil</a></li> 
-				<li><a href="$url_connection">Connection</a></li>
 				<li><a href = "$url_deconnexion"> Déconnexion</a></li>
 				<li><a href ="$url_formListe">Ajouter une liste</a></li>
 			    <li><a href ="$url_showlistes">Afficher les listes disponibles</a></li>

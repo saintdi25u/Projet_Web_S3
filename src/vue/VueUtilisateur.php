@@ -112,6 +112,9 @@ class VueUtilisateur extends Vue  {
             $url_showAllItem = $this->container->router->pathFor('showAllItem');
             $url_createItem = $this->container->router->pathFor('createItem');
 
+            $url_liste = $this->container->router->pathFor('liste');
+            $url_items = $this->container->router->pathFor('item');
+
             $html = <<<aaa
 
 <!DOCTYPE html>
@@ -126,9 +129,11 @@ class VueUtilisateur extends Vue  {
 				<li><a href="$url_acceuil">Accueil</a></li>
 				<li><a href="$url_connection">Connection</a></li>
 				<li><a href="$url_register">Si vous n'avez pas de compte, enregistrez vous</a></li>
-				<li><a href="$url_deconnexion"> Déconnexion</a></li>                
-				<li><a href="$url_formListe" > Ajouter une nouvelle liste</a></li>
-				<li><a href="$url_showlistes" >Afficher les listes disponibles</a></li>
+                <li><a href="$url_deconnexion"> Déconnexion</a></li>    
+                <li><a href = "$url_liste"> Fonctionalitées pour les listes</a></li>
+                <li><a href = "$url_items"> Fonctionalitées pour les items</a></li>     
+                
+                
 				<li><a href="$url_showItem" >Afficher un item par son ID</a></li>
 				<li><a href="$url_showAllItem" >Afficher les item disponibles</a></li>
 				<li><a href="$url_createItem" >Créer/Ajouter un item a une liste</a></li>

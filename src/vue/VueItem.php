@@ -99,6 +99,10 @@ class VueItem extends Vue{
                 $content = $this->reservationSucces();
                 break;
             }
+            case 5 : {
+                $content = '<p> Fonctionnalités pour les items</p>';
+                break;
+            }
         }
 
 
@@ -119,14 +123,13 @@ class VueItem extends Vue{
     <title>WishList</title>
   </head>
   <body>
-		<h1><a href="$url_acceuil">Wish List</a></h1>
+        <h1><a href="$url_acceuil">Wish List</a></h1>
+        <h2>Fonctionnalité pour les items </h2>
 		<nav>
 			<ul>
 				<li><a href="$url_acceuil">Accueil</a></li>
-				<li><a href="$url_connection">Connection</a></li>
-				<li><a href = "$url_deconnexion"> Déconnexion</a></li>
+				<li><a href = "$url_deconnexion">Déconnexion</a></li>
 				<li><a href ="$url_formListe" >Ajouter une liste</a></li>
-			    <li><a href ="$url_showlistes" >Afficher les listes disponibles</a></li>
 			    <li><a href ="$url_showItem" >Afficher un item par son ID</a></li>
 			     <li><a href ="$url_showAllItem" >Afficher tous les items</a></li>
 			    

@@ -45,6 +45,9 @@ $app->get('/liste/contenu/{no}', \mywishlist\controller\Item::class.":afficherCo
 
 $app->get('/reserve', \mywishlist\controller\Item::class.":afficherFormParticipant")->setName('reserve');
 $app->post('/reserve', \mywishlist\controller\Item::class.":insererParticipant")->setName('reserve');
+
+$app->get('/foncliste', \mywishlist\controller\Liste::class.":allerSurFonctionListe")->setName('liste');
+$app->get('/foncItem', \mywishlist\controller\Item::class.":allerSurFonctionItem")->setName('item');
 $app->run();
 
 

@@ -62,6 +62,15 @@ class Item {
         return $rs;
     }
 
+    public function allerSurFonctionItem(Request $rq, Response $rs, $args) {
+        $vue = new VueItem( [] , $this->container);
+
+        $rs->getBody()->write($vue->render(5));
+
+        return $rs;
+
+    }
+
 
     public function afficherContenuListe(Request $rq, Response $rs, $args){
         $item = \mywishlist\model\Item::where('liste_id', '=', $args['no'])->get();
@@ -72,12 +81,13 @@ class Item {
         return $rs;
     }
 
-
+/**
     public function afficherFormParticipant(Request $rq, Response $rs, $args){
         $vue= new VueItem([], $this->container);
-        $rs->getBody()->write($vue->formMessageItem());
+        //$rs->getBody()->write($vue->formMessageItem());
         return $rs;
     }
+ * */
 
     public function insererParticipant(Request $rq, Response $rs, $args) {
         $post = $rq->getParsedBody();

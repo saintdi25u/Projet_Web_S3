@@ -37,6 +37,15 @@ class Liste {
         return $rs;
     }
 
+    public function allerSurFonctionListe(Request $rq, Response $rs, $args) {
+        $vue = new VueListe( [] , $this->container);
+
+        $rs->getBody()->write($vue->render(5));
+
+        return $rs;
+
+    }
+
     public function formListe(Request $rq, Response $rs, $args) : Response {
         // pour afficher le formulaire liste
         $vue = new VueListe( [] , $this->container ) ;
