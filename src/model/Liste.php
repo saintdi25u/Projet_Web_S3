@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class Liste extends Model
 {
     protected $table = 'liste';
-    protected $primaryKey = 'user_id';
+    protected $primaryKey = 'no';
     public $timestamps= false;
 
     public function items(){
