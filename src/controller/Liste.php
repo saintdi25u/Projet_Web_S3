@@ -69,6 +69,30 @@ class Liste {
         return $rs;
     }
 
+    public function afficherListeDelete(Request $rq, Response $rs, $args){
+        $allListe = \mywishlist\model\Liste::all();
+        $vue = new VueListe($allListe, $this->container);
+        $rs ->getBody()->write($vue->afficherListeAvecDelete());
+        return $rs;
+    }
+
+    public function deleteListe(Request $rq, Response $rs, $args){
+        $vue =  new VueListe([], $this->container);
+        $post = $rq->getParsedBody();
+        $no = $post['delete'];  
+        $liste = \mywishlist\model\Liste::where('no', '=', $no)->first();
+        $liste ->delete();
+        $rs->getBody()->write($vue->render(6));
+        return $rs;
+    }
+
+    public function afficherFormModifListe(Request $rq, Response $rs, $args) {
+        $vue = new VueListe([], $this->container);
+        $rs->getBody()->write($vue->formModifListe());
+        return $rs;
+    }
+
+
 
 
 

@@ -48,6 +48,12 @@ $app->post('/reserve', \mywishlist\controller\Item::class.":insererParticipant")
 
 $app->get('/foncliste', \mywishlist\controller\Liste::class.":allerSurFonctionListe")->setName('liste');
 $app->get('/foncItem', \mywishlist\controller\Item::class.":allerSurFonctionItem")->setName('item');
+
+$app->get('/delete/liste', \mywishlist\controller\Liste::class.":afficherListeDelete") ->setName('showContenuDeleteListe');
+$app->post('/delete/liste', \mywishlist\controller\Liste::class.":deleteListe")->setName('showContenuDeleteListe');
+
+$app->get('/modif/liste', \mywishlist\controller\Liste::class.":afficherFormModifListe") ->setName('modifierListe');
+
 $app->run();
 
 

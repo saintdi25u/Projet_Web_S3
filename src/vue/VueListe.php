@@ -50,6 +50,34 @@ FIN;
          return $html;
      }
 
+     public function afficherListeAvecDelete(){
+        $html = '';
+        $no = 1;
+        foreach($this->tab as $liste){
+            $url = $this->container->router->pathFor('showContenuDeleteListe', ['no'=> $no]);
+            $html .= "<li>{$liste['titre']}''{$liste['description']} </li>";
+            $html .= "  <form action ='$url' method = 'post'>
+                        <button type = 'submit' name = 'delete' value = '{$liste['no']}'> Supprimer </button> <br>";
+        }
+        $html = "<ulstyle = list-style: none>$html</ul>";
+        return $html;
+     }
+
+     public function formModifListe(){
+        $url = $this->container->router->pathFor('racine');
+        echo <<<FIN
+        <h2> Modification de la liste  </h2>
+        <form action ="$url" method = "post">
+        Description : <input type = "text" name = "description" required >
+        Titre de la liste : <input type = "text" name = "titre" required>
+        Expiration de la liste : <input type = "date" required name = "expiration" required >
+        <input type = "submit" value="Modifier">
+    </form>
+    FIN;
+     }
+
+
+
      public function reservationSucces(){
          $html = "<h2> Vous avez bien reservé l'item</h2>";
          return $html;
@@ -82,6 +110,11 @@ FIN;
                  $content = "<p>Voici les fonctionalitées disponibles pour les listes</p>";
                  break;
              }
+
+             case 6 : {
+                 $content = "<h2> La liste que vous avez choisi a été supprimé";
+                 break;
+             }
          }
 
 
@@ -91,6 +124,7 @@ FIN;
          $url_showlistes = $this->container->router->pathFor('showListe');
          $url_formListe = $this->container->router->pathFor('formListe');
          $url_showListeParNo = $this->container->router->pathFor('showListeParNo', ['no' => 1]);
+         $url_deleteListe = $this->container->router->pathFor('showContenuDeleteListe');
 
          $html = <<<aaa
 
@@ -108,7 +142,8 @@ FIN;
 				<li><a href = "$url_deconnexion"> Déconnexion</a></li>
 				<li><a href ="$url_formListe">Ajouter une liste</a></li>
 			    <li><a href ="$url_showlistes">Afficher les listes disponibles</a></li>
-			    <li><a href ="$url_showListeParNo">Afficher une liste par son numéro</a></li>
+                <li><a href ="$url_showListeParNo">Afficher une liste par son numéro</a></li>
+                <li><a href ="$url_deleteListe">Supprimer une liste</a></li>
 			</ul>
 		</nav>
     $content

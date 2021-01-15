@@ -132,12 +132,6 @@ class VueUtilisateur extends Vue  {
                 <li><a href="$url_deconnexion"> Déconnexion</a></li>    
                 <li><a href = "$url_liste"> Fonctionalitées pour les listes</a></li>
                 <li><a href = "$url_items"> Fonctionalitées pour les items</a></li>     
-                
-                
-				<li><a href="$url_showItem" >Afficher un item par son ID</a></li>
-				<li><a href="$url_showAllItem" >Afficher les item disponibles</a></li>
-				<li><a href="$url_createItem" >Créer/Ajouter un item a une liste</a></li>
-
 			</ul>
 		</nav>
     $content

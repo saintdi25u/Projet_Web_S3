@@ -45,6 +45,7 @@ class VueItem extends Vue{
 
     public function formMessageItem(){
         $url_reserve = $this->container->router->pathFor('reserve');
+        $url_acceuil = $this->container->router->pathFor('racine');
         $html = <<<FIN
             <h2> Reserver un item</h2>
             <form action = "$url_reserve" method="post">
@@ -53,10 +54,11 @@ class VueItem extends Vue{
            <br> Entrer votre message <input type="text" name="message" required>
             <input type="submit" value= "Reserver">
             </form>
+            <a href = "$url_acceuil"><button> Revenir a l'accueuil </button></a> 
         FIN;
         return $html;
-
     }
+
 
     public function contenuItem(){
         $html = '';
