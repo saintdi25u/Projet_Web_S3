@@ -56,14 +56,3 @@ $app->get('/modif/liste', \mywishlist\controller\Liste::class.":afficherFormModi
 
 $app->run();
 
-
-// Revoir le partage d'URL pour création d'un item
-
-
-/**
-$list = \mywishlist\model\VueListe::all();
-foreach ($list as $e){
-    print($e->no . "<br>");
-    print($e->titre. "<br>");
-}
- */

@@ -81,13 +81,6 @@ class Item {
         return $rs;
     }
 
-/**
-    public function afficherFormParticipant(Request $rq, Response $rs, $args){
-        $vue= new VueItem([], $this->container);
-        //$rs->getBody()->write($vue->formMessageItem());
-        return $rs;
-    }
- * */
 
     public function insererParticipant(Request $rq, Response $rs, $args) {
         $post = $rq->getParsedBody();

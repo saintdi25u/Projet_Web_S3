@@ -54,10 +54,11 @@ FIN;
         $html = '';
         $no = 1;
         foreach($this->tab as $liste){
-            $url = $this->container->router->pathFor('showContenuDeleteListe', ['no'=> $no]);
+            $url = $this->container->router->pathFor('showContenuDeleteListe');
             $html .= "<li>{$liste['titre']}''{$liste['description']} </li>";
             $html .= "  <form action ='$url' method = 'post'>
-                        <button type = 'submit' name = 'delete' value = '{$liste['no']}'> Supprimer </button> <br>";
+                        <button type = 'submit' name = 'delete' value = '{$liste['no']}'> Supprimer </button> <br>
+                        </form>";
         }
         $html = "<ulstyle = list-style: none>$html</ul>";
         return $html;

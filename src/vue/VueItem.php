@@ -30,6 +30,7 @@ class VueItem extends Vue{
         $html = "<h2>Item {$item['id']}</h2>";
         $html .= "<b>Nom:</b> {$item['nom']}<br>";
         $html .= "<b>Descr:</b> {$item['descr']}<br>";
+        $html .= " <br><img src = '../../../img/{$item['img']}' alt = '{$item['nom']}' width = 100px> ";
         return $html;
     }
 
@@ -38,6 +39,7 @@ class VueItem extends Vue{
         $html = '';
         foreach($this->tab as $item){
             $html .= "<li > ID : {$item['id']} <br> Nom : {$item['nom']} <br>   Description : {$item['descr']} <br>    Prix :{$item['tarif']}€ <br> <br> </li>";
+            $html .= "<img src = '../../img/{$item['img']}' alt = '{$item['nom']}'   width = 100px> ";
         }
         $html = "<ulstyle = list-style: none>$html</ul>";
         return $html;
