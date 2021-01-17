@@ -47,7 +47,6 @@ class Item {
             $img = filter_var($post['img'], FILTER_SANITIZE_STRING);
             $url = filter_var($post['url'], FILTER_SANITIZE_STRING);
             $tarif = filter_var($post['tarif'], FILTER_SANITIZE_STRING);
-
             $model->liste_id = $liste_id;
             $model->nom = $nom;
             $model->descr = $desc;

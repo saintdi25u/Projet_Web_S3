@@ -115,6 +115,7 @@ class VueItem extends Vue{
         $url_deconnexion = $this->container->router->pathFor('deconnexion');
         $url_showlistes = $this->container->router->pathFor('showListe');
         $url_formListe = $this->container->router->pathFor('formListe');
+        $url_formItem = $this->container->router->pathFor('createItem');
         $url_showItem = $this->container->router->pathFor('showItem', ['id' => 1]);
         $url_showAllItem = $this->container->router->pathFor('showAllItem');
 
@@ -133,7 +134,7 @@ class VueItem extends Vue{
 			<ul>
 				<li><a href="$url_acceuil">Accueil</a></li>
 				<li><a href = "$url_deconnexion">Déconnexion</a></li>
-				<li><a href ="$url_formListe" >Ajouter une liste</a></li>
+				<li><a href ="$url_formItem" >Ajouter un item</a></li>
 			    <li><a href ="$url_showItem" >Afficher un item par son ID</a></li>
 			     <li><a href ="$url_showAllItem" >Afficher tous les items</a></li>
 			    
