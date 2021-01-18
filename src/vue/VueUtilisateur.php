@@ -121,21 +121,23 @@ class VueUtilisateur extends Vue  {
 <html>
   <head>
     <title>Accueil</title>
+    <link type="text/css" rel="stylesheet" href="../main.css">
   </head>
   <body>
-		<h1><a href="$url_acceuil">Wish List</a></h1>
+		<h1 id="titre"><a href="$url_acceuil">Wish List</a></h1>
 		<nav>
-			<ul>
+			<ul class="menu">
 				<li><a href="$url_acceuil">Accueil</a></li>
 				<li><a href="$url_connection">Connection</a></li>
 				<li><a href="$url_register">Si vous n'avez pas de compte, enregistrez vous</a></li>
                 <li><a href="$url_deconnexion"> Déconnexion</a></li>    
-                <li><a href = "$url_liste"> Fonctionalitées pour les listes</a></li>
-                <li><a href = "$url_items"> Fonctionalitées pour les items</a></li>     
+                <li><a href = "$url_liste"> Fonctionalités pour les listes</a></li>
+                <li><a href = "$url_items"> Fonctionalités pour les items</a></li>     
 			</ul>
 		</nav>
     $content
   </body>
+  <footer>© 2021 Wishlist</footer>
 </html>
 aaa;
             return $html;

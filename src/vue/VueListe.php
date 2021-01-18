@@ -17,7 +17,6 @@ namespace mywishlist\vue;
      {
          $url_listes = $this->container->router->pathFor('formListe');
          echo <<<FIN
-    <h2> Creation d'une nouvelle VueListe </h2>
     <form action ="$url_listes" method = "post">
     User_ID de la liste : <input type = "number" name = "user_id" required >
     Titre de la liste : <input type = "text" name = "titre" required>
@@ -116,6 +115,10 @@ FIN;
                  $content = "<h2> La liste que vous avez choisi a été supprimé";
                  break;
              }
+
+             case 7 : {
+                 $content = $this->afficherListeAvecDelete();
+             }
          }
 
 
@@ -133,10 +136,11 @@ FIN;
 <html>
   <head>
     <title>Accueil</title> 
+    <link type="text/css" rel="stylesheet" href="../main.css">
+    <link type="text/css" rel="stylesheet" href="../../main.css">
   </head>
   <body>
         <h1><a href="$url_acceuil">Wish List</a></h1>
-        <h1> Fonctionalitées pour les listes </h1>
 		<nav>
 			<ul>
 				<li><a href="$url_acceuil">Accueil</a></li> 
@@ -147,8 +151,10 @@ FIN;
                 <li><a href ="$url_deleteListe">Supprimer une liste</a></li>
 			</ul>
 		</nav>
+		<h2> Fonctionalités pour les listes </h2>
     $content
   </body>
+  <footer>© 2021 Wishlist</footer>
 </html>
 aaa;
          return $html;

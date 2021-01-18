@@ -1,0 +1,58 @@
+html {
+    padding: 0;
+}
+
+h1 {
+    text-align: center;
+    margin-top : 0 ;
+    margin-bottom: 0 ;
+    background: dimgray;
+}
+
+ul {
+    margin-top: 0;
+    text-align: center;
+    background: darkgray;
+}
+
+input {
+    display: block;
+}
+
+a:visited {
+    color: black;
+}
+
+a:hover {
+    color: dimgray;
+}
+
+a:link {
+    text-decoration: none;
+}
+
+li:first-child{
+    border-left: black;
+    border-left-style: solid;
+}
+
+li{
+    padding: 1%;
+    border-right: black;
+    border-right-style: solid;
+}
+
+nav li{
+    display: inline-block;
+}
+
+
+footer {
+    text-align:center;
+    position: fixed;
+    bottom:0;
+    width:100%;
+    background: darkgray;
+    padding-bottom: 10px;
+    padding-top: 10px;
+}

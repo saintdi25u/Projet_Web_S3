@@ -126,10 +126,11 @@ class VueItem extends Vue{
 <html>
   <head>
     <title>WishList</title>
+    <link type="text/css" rel="stylesheet" href="../../main.css">
+    <link type="text/css" rel="stylesheet" href="../main.css">
   </head>
   <body>
         <h1><a href="$url_acceuil">Wish List</a></h1>
-        <h2>Fonctionnalité pour les items </h2>
 		<nav>
 			<ul>
 				<li><a href="$url_acceuil">Accueil</a></li>
@@ -140,8 +141,10 @@ class VueItem extends Vue{
 			    
 			</ul>
 		</nav>
+	    <h2>Fonctionnalités pour les items </h2>
     $content
   </body>
+  <footer>© 2021 Wishlist</footer>
 </html>
 aaa;
         return $html;

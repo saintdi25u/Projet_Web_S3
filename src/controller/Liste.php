@@ -72,7 +72,7 @@ class Liste {
     public function afficherListeDelete(Request $rq, Response $rs, $args){
         $allListe = \mywishlist\model\Liste::all();
         $vue = new VueListe($allListe, $this->container);
-        $rs ->getBody()->write($vue->afficherListeAvecDelete());
+        $rs ->getBody()->write($vue->render(7));
         return $rs;
     }
 
