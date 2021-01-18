@@ -11,16 +11,16 @@ class VueItem extends Vue{
     public function creerFormItem(){
         $url_create = $this->container->router->pathFor('createItem');
         echo <<<eze
-        <h3> Creation d'un item </h3>
-        <form action = "$url_create" method="post">
-         ID de la liste a inserer : <input type ="number" name = "liste_id" required >
-         Nom de l'item : <input type = "text" name = "nom" required >
-         Description de l'item : <input type = "text" name="description">
-         Image : <input type ="text" name = "img">
-         URL : <input type = "url" name = "url">
-         Tarif : <input type = "number" name = "tarif" required>
-         <input type = "submit" value="Créer">
-        </form>
+            <h3> Creation d'un item </h3>
+            <form action = "$url_create" method="post">
+                ID de la liste a inserer : <input type ="number" name = "liste_id" required >
+                Nom de l'item : <input type = "text" name = "nom" required >
+                Description de l'item : <input type = "text" name="description">
+                Image : <input type ="text" name = "img">
+                URL : <input type = "url" name = "url">
+                Tarif : <input type = "number" name = "tarif" required>
+                <input type = "submit" value="Créer">
+            </form>
         eze;
     }
 

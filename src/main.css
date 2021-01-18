@@ -9,7 +9,7 @@ h1 {
     background: dimgray;
 }
 
-ul {
+ul  {
     margin-top: 0;
     text-align: center;
     background: darkgray;
@@ -31,21 +31,21 @@ a:link {
     text-decoration: none;
 }
 
-li:first-child{
+nav > li:first-child{
     border-left: black;
     border-left-style: solid;
 }
 
-li{
+nav li{
+    display: inline-block;
     padding: 1%;
     border-right: black;
     border-right-style: solid;
 }
 
-nav li{
-    display: inline-block;
+li {
+    padding : 1%;
 }
-
 
 footer {
     text-align:center;
