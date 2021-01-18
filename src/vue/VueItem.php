@@ -49,26 +49,30 @@ class VueItem extends Vue{
         $url_reserve = $this->container->router->pathFor('reserve');
         $url_acceuil = $this->container->router->pathFor('racine');
         $html = <<<FIN
+            <link type="text/css" rel="stylesheet" href="../../../main.css">
             <h2> Reserver un item</h2>
             <form action = "$url_reserve" method="post">
-            Entrer l'ID de l'item que vous souhaitez réserver : <input type = "number" name = "id_item" required> <br>
-           <br> Entrer votre nom <input type = "text" name = "nomParticipant" required><br>
-           <br> Entrer votre message <input type="text" name="message" required>
+            Entrer l'ID de l'item que vous souhaitez réserver : <input type = "number" name = "id_item" required>
+            Entrer votre nom <input type = "text" name = "nomParticipant" required>
+            Entrer votre message <input type="text" name="message" required>
             <input type="submit" value= "Reserver">
             </form>
-            <a href = "$url_acceuil"><button> Revenir a l'accueuil </button></a> 
+            <a href = "$url_acceuil"><button> Revenir a l'accueil </button></a> 
         FIN;
         return $html;
     }
 
 
     public function contenuItem(){
-        $html = '';
+        $html = "<link type='text/css' rel='stylesheet' href='../../../main.css'>";
         foreach($this->tab as $i){
+            $html .="<div>";
             $html .="<p> ID : {$i->id} </p>";
             $html .="<p> Nom : {$i->nom} </p>";
             $html .="<p> Description : {$i->descr} </p>";
+            $html .="</div>";
         }
+
         return $html;
     }
 
