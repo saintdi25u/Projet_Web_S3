@@ -32,7 +32,7 @@ namespace mywishlist\vue;
          $id = 1;
          foreach($this->tab as $liste){
              $url = $this->container->router->pathFor('showContenuListe', ['no' => $id]);
-             $html .= "<div><p>{$liste['titre']} -- {$liste['description']} </p>";
+             $html .= "<div><p>{$liste['titre']} -- {$liste['description']} -- Date de fin : {$liste['expiration']}</p>";
              $html .= "<p><a href = '$url'>Voir le détail de la liste </a></p></div> ";
              $id++;
          }
@@ -46,9 +46,10 @@ namespace mywishlist\vue;
      public function afficherUneListeAvecContenu(){
          $liste = $this->tab[0];
          $html = "<link type='text/css' rel='stylesheet' href='../../main.css'>";
-         $html .= "<h2> Liste  : {$liste['no']} </h2>";
-         $html .= "<h2> Titre : {$liste['titre']} </h2>";
-         $html .= "<h2> Description : {$liste['description']} </h2>";
+         $html .= "<div><p> Liste : {$liste['no']} </p>";
+         $html .= "<p> Titre : {$liste['titre']} </p>";
+         $html .= "<p> Description : {$liste['description']} </p>";
+         $html .= "<p> Expiration : {$liste['expiration']} </p></div>";
          return $html;
      }
 
@@ -58,7 +59,6 @@ namespace mywishlist\vue;
         foreach($this->tab as $liste){
             $url = $this->container->router->pathFor('showContenuDeleteListe');
             $url_modif = $this->container->router->pathFor('modifListe');
-            echo ' '.$liste['no'];
             $html .= "<link type='text/css' rel='stylesheet' href='../../main.css'>";
             $html .= "<div><p>{$liste['titre']}''{$liste['description']} </p>";
             $html .= "  <form action ='$url' method = 'post'>
@@ -77,12 +77,14 @@ namespace mywishlist\vue;
      public function formModifListe(){
         $url = $this->container->router->pathFor('modifListe');
         echo <<<FIN
+        <link type='text/css' rel='stylesheet' href='../../main.css'>
         <h2> Modification de la liste </h2>
-        <form action ='$url' method = 'post'>
-        Description : <input type = "text" name = "description" required >
-        Titre de la liste : <input type = "text" name = "titre" required>
-        Expiration de la liste : <input type = "date" required name = "expiration" required >
-        <button type = 'submit' name = 'modif' value = '{$_GET['modif']}'> Modifier </button></p>
+        <div><form action ='$url' method = 'post'>
+        <p>Description : <input type = "text" name = "description" required ></p>
+        <p>Titre de la liste : <input type = "text" name = "titre" required></p>
+        <p>Expiration de la liste : <input type = "date" required name = "expiration" required ></p>
+        <p><button type = 'submit' name = 'modif' value = '{$_GET['modif']}'> Modifier </button></div></p>
+        <footer>© 2021 Wishlist</footer>
     </form>
     FIN;
      }

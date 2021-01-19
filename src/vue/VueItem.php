@@ -27,10 +27,10 @@ class VueItem extends Vue{
     public function afficherItemParId()
     {
         $item = $this->tab[0];
-        $html = "<h2>Item {$item['id']}</h2>";
-        $html .= "<b>Nom:</b> {$item['nom']}<br>";
-        $html .= "<b>Descr:</b> {$item['descr']}<br>";
-        $html .= " <br><img src = '../../../img/{$item['img']}' alt = '{$item['nom']}' width = 100px> ";
+        $html = "<div><h2 class='item'>Item {$item['id']}</h2>";
+        $html .= "<p><b>Nom:</b> {$item['nom']}</p>";
+        $html .= "<p><b>Description:</b> {$item['descr']}</p>";
+        $html .= "<p><img src = '../../../img/{$item['img']}' alt = '{$item['nom']}' width = 100px></div></p>";
         return $html;
     }
 

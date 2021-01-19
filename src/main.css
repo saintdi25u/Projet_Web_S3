@@ -46,21 +46,15 @@ a:link {
     text-decoration: none;
 }
 
-nav > li:first-child{
-    border-left: black;
-    border-left-style: solid;
-}
-
 nav li{
     display: inline-block;
     padding: 1%;
+    border-left: black;
+    border-left-style: solid;
     border-right: black;
     border-right-style: solid;
 }
 
-li {
-    padding : 1%;
-}
 
 div {
     background: #505050 ;
@@ -68,7 +62,6 @@ div {
     padding : 3px;
     border-radius: 10px;
 }
-
 
 p {
     background: #606060 ;
@@ -79,14 +72,15 @@ p {
     border-radius: 10px;
 }
 
-p:last-child {
 
+p:last-child {
     margin-bottom: 1%;
 }
 
 .afficherAllItem {
     border-radius: 10px;
     vertical-align: middle;
+    margin-bottom: 70px;
 }
 
 .afficherAllItem p{
@@ -111,6 +105,10 @@ p:last-child {
     border-radius: 10px;
 }
 
+.item {
+    margin: 0;
+}
+
 footer {
     text-align:center;
     position: fixed;
@@ -119,4 +117,5 @@ footer {
     background: darkgray;
     padding-bottom: 30px;
     padding-top: 30px;
+    margin-top: 15%;
 }
