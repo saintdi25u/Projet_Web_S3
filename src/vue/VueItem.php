@@ -13,8 +13,8 @@ class VueItem extends Vue{
         echo <<<eze
             <div><h3> Creation d'un item </h3>
             <form action = "$url_create" method="post">
-                <p>ID de la liste a inserer : <input type ="number" name = "liste_id" required ></p>
-                <p>Nom de l'item : <input type = "text" name = "nom" required ></p>
+                <p>ID de la liste a inserer : <input type ="number" name = "liste_id" required></p>
+                <p>Nom de l'item : <input type = "text" name = "nom" required></p>
                 <p>Description de l'item : <input type = "text" name="description"></p>
                 <p>Image : <input type ="text" name = "img"></p>
                 <p>URL : <input type = "url" name = "url"></p>

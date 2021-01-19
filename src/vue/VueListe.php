@@ -41,6 +41,8 @@ namespace mywishlist\vue;
      }
 
 
+
+
      public function afficherUneListeAvecContenu(){
          $liste = $this->tab[0];
          $html = "<link type='text/css' rel='stylesheet' href='../../main.css'>";
@@ -55,11 +57,18 @@ namespace mywishlist\vue;
         $no = 1;
         foreach($this->tab as $liste){
             $url = $this->container->router->pathFor('showContenuDeleteListe');
-            $html = "<link type='text/css' rel='stylesheet' href='../../main.css'>";
+            $url_modif = $this->container->router->pathFor('modifListe');
+            echo ' '.$liste['no'];
+            $html .= "<link type='text/css' rel='stylesheet' href='../../main.css'>";
             $html .= "<div><p>{$liste['titre']}''{$liste['description']} </p>";
             $html .= "  <form action ='$url' method = 'post'>
-                        <p><button type = 'submit' name = 'delete' value = '{$liste['no']}'> Supprimer </button></p>
-                        </form></div>";
+                            <p><button type = 'submit' name = 'delete' value = '{$liste['no']}'> Supprimer </button></p>
+                        </form>
+                        <form action ='$url_modif' method = 'get'>
+                            <p><button type = 'submit' name = 'modif' value = '{$liste['no']}'> Modifier </button></p>
+                        </form>
+                        
+                        </div>";
         }
         $html = "<ulstyle = list-style: none>$html</ul>";
         return $html;
@@ -68,8 +77,8 @@ namespace mywishlist\vue;
      public function formModifListe(){
         $url = $this->container->router->pathFor('racine');
         echo <<<FIN
-        <h2> Modification de la liste  </h2>
-        <form action ="$url" method = "post">
+        <h2> Modification de la liste </h2>
+        <form action ="$url" method = "get">
         Description : <input type = "text" name = "description" required >
         Titre de la liste : <input type = "text" name = "titre" required>
         Expiration de la liste : <input type = "date" required name = "expiration" required >
@@ -120,6 +129,10 @@ namespace mywishlist\vue;
 
              case 7 : {
                  $content = $this->afficherListeAvecDelete();
+             }
+
+             case 8 : {
+
              }
          }
 

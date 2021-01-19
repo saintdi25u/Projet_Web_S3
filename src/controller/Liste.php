@@ -86,6 +86,15 @@ class Liste {
         return $rs;
     }
 
+    public function modifierListe(Request $rq, Response $rs, $args){
+        $model = \mywishlist\model\Liste::where('no','=',$_GET['modif']);
+        $post = $rq->getParsedBody();
+        $model->description = $post['description'];
+        $model->expiration = $post['expiration'];
+        $model->titre = $post['titre'];
+        $model->save();
+    }
+
     public function afficherFormModifListe(Request $rq, Response $rs, $args) {
         $vue = new VueListe([], $this->container);
         $rs->getBody()->write($vue->formModifListe());

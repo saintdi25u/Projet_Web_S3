@@ -52,7 +52,8 @@ $app->get('/foncItem', \mywishlist\controller\Item::class.":allerSurFonctionItem
 $app->get('/delete/liste', \mywishlist\controller\Liste::class.":afficherListeDelete") ->setName('showContenuDeleteListe');
 $app->post('/delete/liste', \mywishlist\controller\Liste::class.":deleteListe")->setName('showContenuDeleteListe');
 
-$app->get('/modif/liste', \mywishlist\controller\Liste::class.":afficherFormModifListe") ->setName('modifierListe');
+$app->get('/modif/liste', \mywishlist\controller\Liste::class.":afficherFormModifListe") ->setName('modifListe');
+$app->post('/modif/liste', \mywishlist\controller\Liste::class.":modifierListe") ->setName('modifListe');
 
 $app->run();
 
