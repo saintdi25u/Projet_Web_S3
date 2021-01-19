@@ -32,7 +32,7 @@ namespace mywishlist\vue;
          $id = 1;
          foreach($this->tab as $liste){
              $url = $this->container->router->pathFor('showContenuListe', ['no' => $id]);
-             $html .= "<li >{$liste['titre']}''{$liste['description']} </li>";
+             $html .= "<p>{$liste['titre']}''{$liste['description']} </p>";
              $html .= "<a href = '$url'>Voir le détail de la liste </a> ";
              $id++;
          }
@@ -43,7 +43,8 @@ namespace mywishlist\vue;
 
      public function afficherUneListeAvecContenu(){
          $liste = $this->tab[0];
-         $html = "<h2> Liste  : {$liste['no']} </h2>";
+         $html = "<link type='text/css' rel='stylesheet' href='../../main.css'>";
+         $html .= "<h2> Liste  : {$liste['no']} </h2>";
          $html .= "<h2> Titre : {$liste['titre']} </h2>";
          $html .= "<h2> Description : {$liste['description']} </h2>";
          return $html;
@@ -54,6 +55,7 @@ namespace mywishlist\vue;
         $no = 1;
         foreach($this->tab as $liste){
             $url = $this->container->router->pathFor('showContenuDeleteListe');
+            $html = "<link type='text/css' rel='stylesheet' href='../../main.css'>";
             $html .= "<li>{$liste['titre']}''{$liste['description']} </li>";
             $html .= "  <form action ='$url' method = 'post'>
                         <button type = 'submit' name = 'delete' value = '{$liste['no']}'> Supprimer </button> <br>
@@ -107,7 +109,7 @@ namespace mywishlist\vue;
              }
 
              case 5 : {
-                 $content = "<p>Voici les fonctionalitées disponibles pour les listes</p>";
+                 $content = "<p>Voici les fonctionalités disponibles pour les listes</p>";
                  break;
              }
 
@@ -136,8 +138,8 @@ namespace mywishlist\vue;
 <html>
   <head>
     <title>Accueil</title> 
-    <link type="text/css" rel="stylesheet" href="../main.css">
-    <link type="text/css" rel="stylesheet" href="../../main.css">
+    
+  <link type="text/css" rel="stylesheet" href="../main.css">
   </head>
   <body>
         <h1><a href="$url_acceuil">Wish List</a></h1>

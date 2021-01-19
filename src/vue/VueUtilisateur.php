@@ -16,7 +16,7 @@ class VueUtilisateur extends Vue  {
         $html = <<<eze
         <h2> Enregistrez-vous </h2>
         <form action = "$url_connection" method = "post">
-        Nom : <input type = "text" name = "nom">
+        <p>Nom : <input type = "text" name = "nom"></p>
         <p>Mot de passe : <input type ="password" name = "password"></p>
         <input type = "submit" value = "S'enregistrer">
          </form>
@@ -30,7 +30,7 @@ class VueUtilisateur extends Vue  {
         $html=  <<<eze
         <h2> Connectez-vous </h2>
         <form action = "$url_connection" method = "post">
-        Nom : <input type = "text" name = "nom-connect">
+        <p>Nom : <input type = "text" name = "nom-connect"></p>
         <p>Mot de passe : <input type ="password" name = "password-connect"></p>
         <input type = "submit" value = "Connexion">
          </form>
