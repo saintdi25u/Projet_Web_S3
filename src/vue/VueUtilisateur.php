@@ -32,7 +32,7 @@ class VueUtilisateur extends Vue  {
         <form action = "$url_connection" method = "post">
         <p>Nom : <input type = "text" name = "nom-connect"></p>
         <p>Mot de passe : <input type ="password" name = "password-connect"></p>
-        <input type = "submit" value = "Connexion">
+        <p><input type = "submit" value = "Connexion"></p>
          </form>
     eze;
 

@@ -17,13 +17,13 @@ namespace mywishlist\vue;
      {
          $url_listes = $this->container->router->pathFor('formListe');
          echo <<<FIN
-            <form action ="$url_listes" method = "post">
-                User_ID de la liste : <input type = "number" name = "user_id" required >
-                Titre de la liste : <input type = "text" name = "titre" required>
-                Description de la liste : <input type = text name = "description" required >
-                Expiration de la liste : <input type = "date" required name = "expiration" required >
-            <input type = "submit" value="Créer">
-            </form>
+            <div><form action ="$url_listes" method = "post">
+                <p>User_ID de la liste : <input type = "number" name = "user_id" required ></p>
+                <p>Titre de la liste : <input type = "text" name = "titre" required></p>
+                <p>Description de la liste : <input type = text name = "description" required ></p>
+                <p>Expiration de la liste : <input type = "date" required name = "expiration" required ></p>
+                <p><input type = "submit" value="Créer"></p>
+            </form></div>
     FIN;
      }
 
@@ -32,8 +32,8 @@ namespace mywishlist\vue;
          $id = 1;
          foreach($this->tab as $liste){
              $url = $this->container->router->pathFor('showContenuListe', ['no' => $id]);
-             $html .= "<p>{$liste['titre']}''{$liste['description']} </p>";
-             $html .= "<a href = '$url'>Voir le détail de la liste </a> ";
+             $html .= "<div><p>{$liste['titre']} -- {$liste['description']} </p>";
+             $html .= "<p><a href = '$url'>Voir le détail de la liste </a></p></div> ";
              $id++;
          }
          $html = "<ulstyle = list-style: none>$html</ul>";
@@ -56,10 +56,10 @@ namespace mywishlist\vue;
         foreach($this->tab as $liste){
             $url = $this->container->router->pathFor('showContenuDeleteListe');
             $html = "<link type='text/css' rel='stylesheet' href='../../main.css'>";
-            $html .= "<li>{$liste['titre']}''{$liste['description']} </li>";
+            $html .= "<div><p>{$liste['titre']}''{$liste['description']} </p>";
             $html .= "  <form action ='$url' method = 'post'>
-                        <button type = 'submit' name = 'delete' value = '{$liste['no']}'> Supprimer </button> <br>
-                        </form>";
+                        <p><button type = 'submit' name = 'delete' value = '{$liste['no']}'> Supprimer </button></p>
+                        </form></div>";
         }
         $html = "<ulstyle = list-style: none>$html</ul>";
         return $html;

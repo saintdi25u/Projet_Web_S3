@@ -4,6 +4,7 @@ html {
 
 h1 {
     text-align: center;
+    padding: 1%;
     margin-top : 0 ;
     margin-bottom: 0 ;
     background: dimgray;
@@ -11,12 +12,26 @@ h1 {
 
 ul  {
     margin-top: 0;
+    margin-bottom: 0;
     text-align: center;
     background: darkgray;
 }
 
+h2 {
+    background: #606060;
+    display: inline-block;
+    margin-top: 0%;
+    padding: 1%;
+    border-bottom-right-radius: 10px;
+}
+
 input {
+    margin-top: 3px;
     display: block;
+}
+
+a {
+    color: black;
 }
 
 a:visited {
@@ -24,7 +39,7 @@ a:visited {
 }
 
 a:hover {
-    color: dimgray;
+    color: #3D3D3D;
 }
 
 a:link {
@@ -49,17 +64,58 @@ li {
 
 div {
     background: #505050 ;
-    margin-bottom: 2%;
+    margin-bottom: 1%;
     padding : 3px;
     border-radius: 10px;
 }
+
 
 p {
     background: #606060 ;
     margin-left: 1%;
     margin-right: 1%;
+    margin-bottom: 0;
+    padding: 15px;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+}
+
+
+p:last-child {
+    background: #606060 ;
+    margin-right: 1%;
     margin-bottom: 1%;
-    padding: 1%;
+    margin-top: 0%;
+    border-top-left-radius: 0px;
+    border-top-right-radius: 0px;
+    border-bottom-right-radius: 10px;
+    border-bottom-left-radius: 10px;
+}
+
+.afficherAllItem {
+    border-radius: 10px;
+    vertical-align: middle;
+}
+
+.afficherAllItem p{
+    background: #606060 ;
+    margin-left: 1%;
+    margin-right: 1%;
+    margin-bottom: 1%;
+    padding: 15px;
+    border-radius: 10px;
+}
+
+.afficherAllItem p:first-child{
+    background: #606060 ;
+    margin-left: 1%;
+    margin-right: 1%;
+    margin-bottom: 1%;
+    padding: 15px;
+    border-radius: 10px;
+}
+
+.afficherAllItem img{
     border-radius: 10px;
 }
 
@@ -70,5 +126,5 @@ footer {
     width:100%;
     background: darkgray;
     padding-bottom: 30px;
-    padding-top: 10px;
+    padding-top: 30px;
 }

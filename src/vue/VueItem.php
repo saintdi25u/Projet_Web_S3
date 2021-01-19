@@ -11,16 +11,16 @@ class VueItem extends Vue{
     public function creerFormItem(){
         $url_create = $this->container->router->pathFor('createItem');
         echo <<<eze
-            <h3> Creation d'un item </h3>
+            <div><h3> Creation d'un item </h3>
             <form action = "$url_create" method="post">
-                ID de la liste a inserer : <input type ="number" name = "liste_id" required >
-                Nom de l'item : <input type = "text" name = "nom" required >
-                Description de l'item : <input type = "text" name="description">
-                Image : <input type ="text" name = "img">
-                URL : <input type = "url" name = "url">
-                Tarif : <input type = "number" name = "tarif" required>
-                <input type = "submit" value="Créer">
-            </form>
+                <p>ID de la liste a inserer : <input type ="number" name = "liste_id" required ></p>
+                <p>Nom de l'item : <input type = "text" name = "nom" required ></p>
+                <p>Description de l'item : <input type = "text" name="description"></p>
+                <p>Image : <input type ="text" name = "img"></p>
+                <p>URL : <input type = "url" name = "url"></p>
+                <p>Tarif : <input type = "number" name = "tarif" required></p>
+                <p><input type = "submit" value="Créer"></p>
+            </form></div>
         eze;
     }
 
@@ -38,8 +38,8 @@ class VueItem extends Vue{
     public function afficherAllItem() {
         $html = '';
         foreach($this->tab as $item){
-            $html .= "<li > ID : {$item['id']} <br> Nom : {$item['nom']} <br>   Description : {$item['descr']} <br>    Prix :{$item['tarif']}€ <br> <br> </li>";
-            $html .= "<img src = '../../img/{$item['img']}' alt = '{$item['nom']}'   width = 100px> ";
+            $html .= "<div class='afficherAllItem'><img src = '../../img/{$item['img']}' alt = '{$item['nom']}'   width = 100px> ";
+            $html .= "<p> ID : {$item['id']} </p> <p> Nom : {$item['nom']}</p> <p> Description : {$item['descr']}</p>  <p> Prix :{$item['tarif']}€ </p> </div>";
         }
         $html = "<ulstyle = list-style: none>$html</ul>";
         return $html;
@@ -85,7 +85,7 @@ class VueItem extends Vue{
         switch ($select) {
             case 0 :
             {
-                $content = $this->creerFormItem();
+                $contencontent = $this->creerFormItem();
                 break;
             }
             case 1 :
