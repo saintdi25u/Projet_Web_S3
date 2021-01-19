@@ -87,12 +87,16 @@ class Liste {
     }
 
     public function modifierListe(Request $rq, Response $rs, $args){
-        $model = \mywishlist\model\Liste::where('no','=',$_GET['modif']);
+        $vue = new VueListe([], $this->container);
         $post = $rq->getParsedBody();
-        $model->description = $post['description'];
-        $model->expiration = $post['expiration'];
-        $model->titre = $post['titre'];
-        $model->save();
+        $no = $post['modif'];
+        $liste = \mywishlist\model\Liste::where('no', '=', $no)->first();
+        $liste->description = $post['description'];
+        $liste->expiration = $post['expiration'];
+        $liste->titre = $post['titre'];
+        $liste->save(); 
+       $rs->getBody()->write($vue->render(7));
+       return $rs;
     }
 
     public function afficherFormModifListe(Request $rq, Response $rs, $args) {

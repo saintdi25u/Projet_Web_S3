@@ -63,11 +63,11 @@ namespace mywishlist\vue;
             $html .= "<div><p>{$liste['titre']}''{$liste['description']} </p>";
             $html .= "  <form action ='$url' method = 'post'>
                             <p><button type = 'submit' name = 'delete' value = '{$liste['no']}'> Supprimer </button></p>
-                        </form>
-                        <form action ='$url_modif' method = 'get'>
-                            <p><button type = 'submit' name = 'modif' value = '{$liste['no']}'> Modifier </button></p>
-                        </form>
+                        </form> 
                         
+                        <form action ='$url_modif' method = 'get' >
+                            <p><button type = 'submit' name = 'modif' value = '{$liste['no']}'> Modifier </button></p>
+                        </form>   
                         </div>";
         }
         $html = "<ulstyle = list-style: none>$html</ul>";
@@ -75,14 +75,14 @@ namespace mywishlist\vue;
      }
 
      public function formModifListe(){
-        $url = $this->container->router->pathFor('racine');
+        $url = $this->container->router->pathFor('modifListe');
         echo <<<FIN
         <h2> Modification de la liste </h2>
-        <form action ="$url" method = "get">
+        <form action ='$url' method = 'post'>
         Description : <input type = "text" name = "description" required >
         Titre de la liste : <input type = "text" name = "titre" required>
         Expiration de la liste : <input type = "date" required name = "expiration" required >
-        <input type = "submit" value="Modifier">
+        <button type = 'submit' name = 'modif' value = '{$_GET['modif']}'> Modifier </button></p>
     </form>
     FIN;
      }
@@ -129,6 +129,7 @@ namespace mywishlist\vue;
 
              case 7 : {
                  $content = $this->afficherListeAvecDelete();
+                 break;
              }
 
              case 8 : {
