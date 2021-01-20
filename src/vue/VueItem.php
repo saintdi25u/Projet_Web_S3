@@ -3,19 +3,11 @@
 namespace mywishlist\vue;
 class VueItem extends Vue{
 
-    /**
-     * VueItem constructor.
-     * @param $tab
-     * @param $container
-     */
     public function __construct($tab, $container)
     {
         parent::__construct($tab, $container);
     }
 
-    /**
-     * Permet la création et l'affichage du formulaire pour les items
-     */
     public function creerFormItem(){
         $url_create = $this->container->router->pathFor('createItem');
         echo <<<eze
@@ -32,9 +24,6 @@ class VueItem extends Vue{
         eze;
     }
 
-    /**
-     * Permet la création et l'affichage du formulaire pour les items triés par id
-     */
     public function afficherItemParId()
     {
         $item = $this->tab[0];
@@ -45,9 +34,7 @@ class VueItem extends Vue{
         return $html;
     }
 
-    /**
-     * Permet la création et l'affichage du formulaire pour tous les items
-     */
+
     public function afficherAllItem() {
         $html = '';
         foreach($this->tab as $item){
@@ -58,9 +45,6 @@ class VueItem extends Vue{
         return $html;
     }
 
-    /**
-     * Permet la création et l'affichage du formulaire pour réserver un item
-     */
     public function formMessageItem(){
         $url_reserve = $this->container->router->pathFor('reserve');
         $url_acceuil = $this->container->router->pathFor('racine');
@@ -78,9 +62,7 @@ class VueItem extends Vue{
         return $html;
     }
 
-    /**
-     * Permet la création et l'affichage du formulaire pour le contenu d'un item
-     */
+
     public function contenuItem(){
         $html = "<link type='text/css' rel='stylesheet' href='../../../main.css'>";
         foreach($this->tab as $i){
@@ -95,11 +77,9 @@ class VueItem extends Vue{
     }
 
 
-    /**
-     * @param int $select
-     * @return string
-     * Permet de choisir quel formulaire nous souhaitons
-     */
+
+
+
     public function render (int $select) : string
     {
         switch ($select) {
@@ -168,7 +148,7 @@ class VueItem extends Vue{
 	    <h2>Fonctionnalités pour les items </h2>
     $content
   </body>
-  <footer>© / SAINT-DIZIER Corentin - VIRICH John - RUDYNSKI Thomas/footer>
+  <footer>© / SAINT-DIZIER Corentin - VIRICH John - RUDYNSKI Thomas </footer>
 </html>
 aaa;
         return $html;
