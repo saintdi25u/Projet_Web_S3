@@ -18,7 +18,7 @@ class VueUtilisateur extends Vue  {
         <form action = "$url_connection" method = "post">
         <p>Nom : <input type = "text" name = "nom"></p>
         <p>Mot de passe : <input type ="password" name = "password"></p>
-        <input type = "submit" value = "S'enregistrer">
+        <p><input type = "submit" value = "S'enregistrer"></p>
          </form>
     eze;
 
