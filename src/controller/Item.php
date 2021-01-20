@@ -142,9 +142,20 @@ class Item {
             $item = \mywishlist\model\Item::where('id', '=', filter_var($post['id_item']))->update(['participant' =>  filter_var($post['nomParticipant'])]);
             $vue = new VueListe([], $this->container);
             $rs ->getBody()->write($vue->render(4));
-
         } else {
             $rs ->getBody()->write("<h3>Cet Item est deja reservé</h3>");
         }
     }
+
+    public function modifierUneImageDunItem(Request $rq, Response $rs, $args){
+        /**
+         * Pour cette fonctionnalité, il aurait fallu faire un lien qui renvoyait vers un formulaire ou l'utilisateur 
+         * aurait pu mettre les informations qu'ils souhaitaient, quand il appuie sur le bouton modifier, cela va mettre a jour dans la base de donnée
+         * les valeurs pour l'item correspondant.
+         * Bien évidemement, on aurait récuperer l'id de l'item au préalable
+         */
+    }
+
+
+   
 }
