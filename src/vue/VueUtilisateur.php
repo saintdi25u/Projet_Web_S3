@@ -47,9 +47,9 @@ class VueUtilisateur extends Vue  {
         <p><input type = "submit" value = "Connexion"></p>
          </form>
     eze;
-
         return $html;
     }
+
 
 
     /**
@@ -114,6 +114,16 @@ class VueUtilisateur extends Vue  {
                     break;
                 }
 
+                case 12 : {
+                    $content = "<h2> Votre compte est bien supprimer</h2>";
+                    break;
+                }
+
+                case 13 : {
+                    $content = "<h2> Veuillez vous connecter pour supprimer votre compte </h2>";
+                    break;
+                }
+
             }
 
             $url_acceuil = $this->container->router->pathFor( 'racine' );
@@ -131,6 +141,7 @@ class VueUtilisateur extends Vue  {
             $url_liste = $this->container->router->pathFor('liste');
             $url_items = $this->container->router->pathFor('item');
 
+            $url_supprimer = $this->container->router->pathFor('supprimerAcount');
             $html = <<<aaa
 
 <!DOCTYPE html>
@@ -146,9 +157,11 @@ class VueUtilisateur extends Vue  {
 				<li><a href="$url_acceuil">Accueil</a></li>
 				<li><a href="$url_connection">Connection</a></li>
 				<li><a href="$url_register">Si vous n'avez pas de compte, enregistrez-vous</a></li>
-                <li><a href="$url_deconnexion"> Déconnexion</a></li>    
+                <li><a href="$url_deconnexion"> Déconnexion</a></li> 
+                <li><a href = "$url_supprimer"> Supprimer son compte</a></li>   
                 <li><a href = "$url_liste"> Fonctionalités pour les listes</a></li>
-                <li><a href = "$url_items"> Fonctionalités pour les items</a></li>     
+                <li><a href = "$url_items"> Fonctionalités pour les items</a></li>  
+                
 			</ul>
 		</nav>
     $content

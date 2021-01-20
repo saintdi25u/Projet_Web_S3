@@ -26,7 +26,6 @@ namespace mywishlist\vue;
          $url_listes = $this->container->router->pathFor('formListe');
          echo <<<FIN
             <div><form action ="$url_listes" method = "post">
-                <p>User_ID de la liste : <input type = "number" name = "user_id" required ></p>
                 <p>Titre de la liste : <input type = "text" name = "titre" required></p>
                 <p>Description de la liste : <input type = text name = "description" required ></p>
                 <p>Expiration de la liste : <input type = "date" required name = "expiration" required ></p>
@@ -99,7 +98,7 @@ namespace mywishlist\vue;
         <p>Titre de la liste : <input type = "text" name = "titre" required></p>
         <p>Expiration de la liste : <input type = "date" required name = "expiration" required ></p>
         <p><button type = 'submit' name = 'modif' value = '{$_GET['modif']}'> Modifier </button></div></p>
-        <footer>© 2021 Wishlist</footer>
+        <footer>© 2021 Wishlist / SAINT-DIZIER Corentin - VIRICH John - RUDYNSKI Thomas</footer>
     </form>
     FIN;
      }
@@ -188,7 +187,7 @@ namespace mywishlist\vue;
 				<li><a href ="$url_formListe">Ajouter une liste</a></li>
 			    <li><a href ="$url_showlistes">Afficher les listes disponibles</a></li>
                 <li><a href ="$url_showListeParNo">Afficher une liste par son numéro</a></li>
-                <li><a href ="$url_deleteListe">Supprimer une liste</a></li>
+                <li><a href ="$url_deleteListe">Supprimer / Modifier une liste </a></li>
 			</ul>
 		</nav>
 		<h2> Fonctionalités pour les listes </h2>

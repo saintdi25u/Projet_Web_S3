@@ -152,6 +152,19 @@ class Utilisateur{
         var_dump($_SESSION['user']);
     }
 
+    public function deleteAccount(Request $rq, Response $rs, $args){
+        $vue =  new VueUtilisateur([], $this->container);
+        if(isset($_SESSION['user'])){
+            $user = \mywishlist\model\Utilisateur::where('uid', '=', $_SESSION['user']['userid'])->first();
+            $user->delete();
+            $rs->getBody()->write($vue ->render(12));
+            session_destroy();
+        } else {
+            $rs->getBody()->write($vue ->render(13));
+        }
+       
+    }
+
     /**
      * @param $required
      * @return bool

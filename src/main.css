@@ -111,9 +111,6 @@ p:last-child {
 
 footer {
     text-align:center;
-    position: fixed;
-    bottom:0;
-    width:100%;
     background: darkgray;
     padding-bottom: 30px;
     padding-top: 30px;

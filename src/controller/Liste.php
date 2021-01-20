@@ -31,25 +31,32 @@ class Liste {
      * @return Response
      * @throws \Exception
      */
-    public function creerNouvelleListe(Request $rq, Response $rs, $args){
-    {   $vue = new VueListe([], $this->container);
+    public function creerNouvelleListe(Request $rq, Response $rs, $args){  
+        $vue = new VueListe([], $this->container);
+        if(Utilisateur::checkAccessRights(1))  {
+            
 
             $post = $rq->getParsedBody();
             $list = new \mywishlist\model\Liste();
-            $user_id = strip_tags(filter_var($post['user_id'], FILTER_SANITIZE_STRING));
+
             $titre = strip_tags(filter_var($post['titre'], FILTER_SANITIZE_STRING));
             $description = strip_tags(filter_var($post['description'], FILTER_SANITIZE_STRING));
             $expiration = filter_var($post['expiration'], FILTER_SANITIZE_STRING);
             $token =  dechex(random_int(0, 0xFFFFFFF));
-            $list->user_id = $user_id;
+            $list->user_id = $_SESSION['user']['userid'];
             $list->titre = $titre;
             $list ->description = $description;
             $list->expiration = $expiration;
             $list ->token = $token;
             $list->save();
             $rs->getBody()->write($vue ->render(0));
+        } else {
+            $rs->getBody()->write($vue->render(2));
         }
         return $rs;
+       
+        
+       
     }
 
     /**
@@ -134,12 +141,16 @@ class Liste {
      */
     public function deleteListe(Request $rq, Response $rs, $args){
         $vue =  new VueListe([], $this->container);
-        $post = $rq->getParsedBody();
-        $no = $post['delete'];  
-        $liste = \mywishlist\model\Liste::where('no', '=', $no)->first();
-        $liste ->delete();
-        $rs->getBody()->write($vue->render(6));
-        return $rs;
+        if(Utilisateur::checkAccessRights(1)) {
+            $post = $rq->getParsedBody();
+            $no = $post['delete'];  
+            $liste = \mywishlist\model\Liste::where('no', '=', $no)->first();
+            $liste ->delete();
+            $rs->getBody()->write($vue->render(6));
+        } else {
+            $rs->getBody()->write($vue ->render(2));
+        }
+        
     }
 
 
@@ -152,6 +163,7 @@ class Liste {
      */
     public function modifierListe(Request $rq, Response $rs, $args){
         $vue = new VueListe([], $this->container);
+        if(Utilisateur::checkAccessRights(1)) {
         $post = $rq->getParsedBody();
         $no = $post['modif'];
         $liste = \mywishlist\model\Liste::where('no', '=', $no)->first();
@@ -160,7 +172,10 @@ class Liste {
         $liste->titre = $post['titre'];
         $liste->save(); 
        $rs->getBody()->write($vue->render(7));
-       return $rs;
+        } else {
+        $rs->getBody()->write($vue->render(2));
+        }
+        return $rs;
     }
 
     /**

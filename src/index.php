@@ -55,5 +55,7 @@ $app->post('/delete/liste', \mywishlist\controller\Liste::class.":deleteListe")-
 $app->get('/modif/liste', \mywishlist\controller\Liste::class.":afficherFormModifListe")->setName('modifListe');
 $app->post('/modif/liste', \mywishlist\controller\Liste::class.":modifierListe")->setName('modifListe');
 
+$app->get('/deleteAccount', \mywishlist\controller\Utilisateur::class.":deleteAccount")->setName('supprimerAcount');
+
 $app->run();
 
