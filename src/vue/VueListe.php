@@ -8,11 +8,19 @@ namespace mywishlist\vue;
  class VueListe extends Vue
  {
 
+     /**
+      * VueListe constructor.
+      * @param $tab
+      * @param $container
+      */
      public function __construct($tab, $container)
      {
          parent::__construct($tab, $container);
      }
 
+     /**
+      * Permet la création et l'affichage du formulaire pour les listes
+      */
      public function creerFormListe()
      {
          $url_listes = $this->container->router->pathFor('formListe');
@@ -27,6 +35,9 @@ namespace mywishlist\vue;
     FIN;
      }
 
+     /**
+      * Permet la création et l'affichage du formulaire pour toutes les listes
+      */
      public function afficherAllListes() {
          $html = '';
          $id = 1;
@@ -40,6 +51,9 @@ namespace mywishlist\vue;
          return $html;
      }
 
+     /**
+      * Permet la création et l'affichage du formulaire pour une liste avec son contenu détaillé
+      */
      public function afficherUneListeAvecContenu(){
          $liste = $this->tab[0];
          $html = "<link type='text/css' rel='stylesheet' href='../../main.css'>";
@@ -50,6 +64,9 @@ namespace mywishlist\vue;
          return $html;
      }
 
+     /**
+      * Permet la création et l'affichage du formulaire pour les listes à supprimer
+      */
      public function afficherListeAvecDelete(){
         $html = '';
         foreach($this->tab as $liste){
@@ -69,6 +86,9 @@ namespace mywishlist\vue;
         return $html;
      }
 
+     /**
+      * Permet la création et l'affichage du formulaire pour les listes à modifier
+      */
      public function formModifListe(){
         $url = $this->container->router->pathFor('modifListe');
         echo <<<FIN
@@ -85,13 +105,19 @@ namespace mywishlist\vue;
      }
 
 
-
+     /**
+      * Permet l'afficher lorsque la réservation a été effectué'
+      */
      public function reservationSucces(){
          $html = "<h2> Vous avez bien reservé l'item</h2>";
          return $html;
      }
 
-
+     /**
+      * @param int $select
+      * @return string
+      * Permet de choisir quel formulaire choisir
+      */
      public function render (int $select) : string {
          switch($select){
              case 0 : {

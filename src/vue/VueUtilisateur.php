@@ -5,12 +5,20 @@ namespace mywishlist\vue;
 
 class VueUtilisateur extends Vue  {
 
+    /**
+     * VueUtilisateur constructor.
+     * @param $tab
+     * @param $container
+     */
     public function __construct($tab, $container)
     {
         parent::__construct($tab, $container);
     }
 
-
+    /**
+     * @return string
+     * Permet la création et l'affichage du formulaire pour l'enregistrement d'un utilisateur
+     */
     public function registerForm(){
         $url_connection = $this->container->router->pathFor('register');
         $html = <<<eze
@@ -25,6 +33,10 @@ class VueUtilisateur extends Vue  {
         return $html;
     }
 
+    /**
+     * @return string
+     * Permet la création et l'affichage du formulaire pour la connexion d'un utilisateur
+     */
     public function ConnectionForm() : string{
         $url_connection = $this->container->router->pathFor( 'connect' );
         $html=  <<<eze
@@ -40,8 +52,11 @@ class VueUtilisateur extends Vue  {
     }
 
 
-
-
+    /**
+     * @param int $select
+     * @return string
+     * Permet de choisir le formulaire souhaité
+     */
         public function render (int $select) : string {
             switch($select){
                 case 0 : {
