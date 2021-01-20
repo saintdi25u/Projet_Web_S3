@@ -45,7 +45,8 @@ class VueUtilisateur extends Vue  {
         public function render (int $select) : string {
             switch($select){
                 case 0 : {
-                    $content = '<p>Accueil racine du site</p>';
+                    $content = '<h1>Bienvenue sur notre Application web MyWishList.</h1>
+                                <p> Les fonctionnalités sont disponibles sur la barre de navigation situé en haut </p>';
                     break;
                 }
                 case 1 : {
@@ -137,7 +138,7 @@ class VueUtilisateur extends Vue  {
 		</nav>
     $content
   </body>
-  <footer>© 2021 Wishlist</footer>
+  <footer>© 2021 Wishlist / SAINT-DIZIER Corentin - VIRICH John - RUDYNSKI Thomas</footer>
 </html>
 aaa;
             return $html;

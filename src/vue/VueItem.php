@@ -148,7 +148,7 @@ class VueItem extends Vue{
 	    <h2>Fonctionnalités pour les items </h2>
     $content
   </body>
-  <footer>© 2021 Wishlist</footer>
+  <footer>© / SAINT-DIZIER Corentin - VIRICH John - RUDYNSKI Thomas/footer>
 </html>
 aaa;
         return $html;
