@@ -73,20 +73,20 @@ class VueUtilisateur extends Vue  {
                     break;
                 }
                 case 3 : {
-                    $content = '<h2 style = color:blue> Bienvenue ' . $this->tab['login'] .'</h2>';
+                    $content = '<h2> Bienvenue ' . $this->tab['login'] .'</h2>';
                     break;
                 }
                 case 4 : {
-                    $content = '<h2 style = color:blue> Vous êtes enregistré ' . $this->tab['login'] . '</h2>' ;
+                    $content = '<h2> Vous êtes enregistré ' . $this->tab['login'] . '</h2>' ;
                     break;
                 }
                 case 5 : {
-                    $content = '<h2 style = color:blue> Vous êtes déconnecté <h2>';
+                    $content = '<h2> Vous êtes déconnecté <h2>';
                     $content .= $this->ConnectionForm();
                     break;
                 }
                 case 6 : {
-                    $content = '<h2 style = color:#ff0000> Login ou mot de passe incorrect, veuillez réessayer</h2>';
+                    $content = '<h2> Login ou mot de passe incorrect, veuillez réessayer</h2>';
                     $content .= $this->ConnectionForm();
                     break;
                 }
@@ -110,7 +110,7 @@ class VueUtilisateur extends Vue  {
                     break;
                 }
                 case 11 : {
-                    $content = '<h2 style = color:blue> Vous êtes deja connecté avec le profil :  ' . $this->tab['login'] .'</h2>';
+                    $content = '<h2> Vous êtes deja connecté avec le profil :  ' . $this->tab['login'] .'</h2>';
                     break;
                 }
 
