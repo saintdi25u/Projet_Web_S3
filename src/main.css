@@ -1,0 +1,121 @@
+html {
+    padding: 0;
+}
+
+h1 {
+    text-align: center;
+    padding: 1%;
+    margin-top : 0 ;
+    margin-bottom: 0 ;
+    background: dimgray;
+}
+
+ul  {
+    margin-top: 0;
+    margin-bottom: 0;
+    text-align: center;
+    background: darkgray;
+}
+
+h2 {
+    background: #606060;
+    display: inline-block;
+    margin-top: 0%;
+    padding: 1%;
+    border-bottom-right-radius: 10px;
+}
+
+input {
+    margin-top: 3px;
+    display: block;
+}
+
+a {
+    color: black;
+}
+
+a:visited {
+    color: black;
+}
+
+a:hover {
+    color: #3D3D3D;
+}
+
+a:link {
+    text-decoration: none;
+}
+
+nav li{
+    display: inline-block;
+    padding: 1%;
+    border-left: black;
+    border-left-style: solid;
+    border-right: black;
+    border-right-style: solid;
+}
+
+
+div {
+    background: #505050 ;
+    margin-bottom: 1%;
+    padding : 3px;
+    border-radius: 10px;
+}
+
+p {
+    background: #606060 ;
+    margin-left: 1%;
+    margin-right: 1%;
+    margin-bottom: 0;
+    padding: 15px;
+    border-radius: 10px;
+}
+
+
+p:last-child {
+    margin-bottom: 1%;
+}
+
+.afficherAllItem {
+    border-radius: 10px;
+    vertical-align: middle;
+    margin-bottom: 70px;
+}
+
+.afficherAllItem p{
+    background: #606060 ;
+    margin-left: 1%;
+    margin-right: 1%;
+    margin-bottom: 1%;
+    padding: 15px;
+    border-radius: 10px;
+}
+
+.afficherAllItem p:first-child{
+    background: #606060 ;
+    margin-left: 1%;
+    margin-right: 1%;
+    margin-bottom: 1%;
+    padding: 15px;
+    border-radius: 10px;
+}
+
+.afficherAllItem img{
+    border-radius: 10px;
+}
+
+.item {
+    margin: 0;
+}
+
+footer {
+    text-align:center;
+    position: fixed;
+    bottom:0;
+    width:100%;
+    background: darkgray;
+    padding-bottom: 30px;
+    padding-top: 30px;
+    margin-top: 15%;
+}

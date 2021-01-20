@@ -2,44 +2,119 @@
 
 namespace mywishlist\controller;
 
+use mywishlist\vue\VueItem;
+use mywishlist\vue\VueListe;
+use mywishlist\vue\VueUtilisateur;
 use \Psr\Http\Message\ServerRequestInterface as Request;
 use \Psr\Http\Message\ResponseInterface as Response;
 
 class Liste {
+    private $container;
 
-    private $uti ;
-
-    public function creerListe(){
-        $v = new \mywishlist\vue\Liste();
-        $v ->render();
+    public function __construct($container){
+        $this->container = $container;
     }
 
-    public function enregistrerListe()
-    {
-        $model = new \mywishlist\model\Liste();
-        $model->user_id = $_POST['user_id'];
-        $model->titre = $_POST['titre'];
-        $model->description = $_POST['description'];
-        $model->expiration = $_POST['expiration'];
-        $model->token = dechex(random_int(0, 0xFFFFFFF));
-        $model->save();
+
+    public function creerNouvelleListe(Request $rq, Response $rs, $args){
+    {   $vue = new VueListe([], $this->container);
+
+            $post = $rq->getParsedBody();
+            $list = new \mywishlist\model\Liste();
+            $user_id = strip_tags(filter_var($post['user_id'], FILTER_SANITIZE_STRING));
+            $titre = strip_tags(filter_var($post['titre'], FILTER_SANITIZE_STRING));
+            $description = strip_tags(filter_var($post['description'], FILTER_SANITIZE_STRING));
+            $expiration = filter_var($post['expiration'], FILTER_SANITIZE_STRING);
+            $token =  dechex(random_int(0, 0xFFFFFFF));
+            $list->user_id = $user_id;
+            $list->titre = $titre;
+            $list ->description = $description;
+            $list->expiration = $expiration;
+            $list ->token = $token;
+            $list->save();
+            $rs->getBody()->write($vue ->render(0));
+        }
+        return $rs;
     }
+
+    public function allerSurFonctionListe(Request $rq, Response $rs, $args) {
+        $vue = new VueListe( [] , $this->container);
+
+        $rs->getBody()->write($vue->render(5));
+
+        return $rs;
+
+    }
+
+    public function formListe(Request $rq, Response $rs, $args) : Response {
+        // pour afficher le formulaire liste
+        $vue = new VueListe( [] , $this->container ) ;
+        $rs->getBody()->write( $vue->render( 0 ) ) ;
+
+        return $rs;
+    }
+
 
     public function afficherListe(Request $rq, Response $rs, $args) : Response {
-            $model= new \mywishlist\model\Liste();
-            $lists = \mywishlist\model\Liste::all();
-            $vue = new \mywishlist\vue\Liste();
-            print "<h2>Listes Disponibles</h2>";
-            foreach($lists as $list){
-                print( 'Numéro  : ' . $list ->no . "<br>" );
-                print( 'User_id : ' . $list ->user_id . "<br>" );
-                print( 'Titre de la liste : ' . $list ->titre . "<br>" );
-                print( 'Description de la liste  : ' . $list ->description . "<br>" );
-                print( 'Expiration de la liste : ' . $list -> expiration . "<br>" );
-                // $vue ->showContenuListe();
-                print "<br>";
-            }
+           $allListe = \mywishlist\model\Liste::all();
+           $vue =  new VueListe($allListe->toArray(), $this->container);
+           $rs ->getBody()->write($vue->render(1));
+           return $rs;
     }
+
+    public function afficherListeParNo(Request $rq, Response $rs, $args) {
+        $liste = \mywishlist\model\Liste::find( $args['no']);
+        $vue = new VueListe( [ $liste->toArray() ] , $this->container );
+        $rs->getBody()->write( $vue->render( 3 ) ) ;
+        return $rs;
+    }
+
+    public function afficherListeDelete(Request $rq, Response $rs, $args){
+        $allListe = \mywishlist\model\Liste::all();
+        $vue = new VueListe($allListe, $this->container);
+        $rs ->getBody()->write($vue->render(7));
+        return $rs;
+    }
+
+    public function deleteListe(Request $rq, Response $rs, $args){
+        $vue =  new VueListe([], $this->container);
+        $post = $rq->getParsedBody();
+        $no = $post['delete'];  
+        $liste = \mywishlist\model\Liste::where('no', '=', $no)->first();
+        $liste ->delete();
+        $rs->getBody()->write($vue->render(6));
+        return $rs;
+    }
+
+    public function modifierListe(Request $rq, Response $rs, $args){
+        $vue = new VueListe([], $this->container);
+        $post = $rq->getParsedBody();
+        $no = $post['modif'];
+        $liste = \mywishlist\model\Liste::where('no', '=', $no)->first();
+        $liste->description = $post['description'];
+        $liste->expiration = $post['expiration'];
+        $liste->titre = $post['titre'];
+        $liste->save(); 
+       $rs->getBody()->write($vue->render(7));
+       return $rs;
+    }
+
+    public function afficherFormModifListe(Request $rq, Response $rs, $args) {
+        $vue = new VueListe([], $this->container);
+        $rs->getBody()->write($vue->formModifListe());
+        return $rs;
+    }
+
+
+
+
+
+/**
+if(is_null($i->particpant)){
+$vueItem = new VueItem([$liste->toArray()], $this->container);
+$rs ->getBody()->write($vueItem->formNomParticipant());
+}
+ * */
   
 
 }
