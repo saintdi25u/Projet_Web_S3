@@ -125,7 +125,7 @@ namespace mywishlist\vue;
              }
 
              case 6 : {
-                 $content = "<h2> La liste que vous avez choisi a été supprimé";
+                 $content = "<h2> La liste que vous avez choisi a été supprimée</h2>";
                  break;
              }
 
@@ -156,6 +156,7 @@ namespace mywishlist\vue;
     <title>Accueil</title> 
     
   <link type="text/css" rel="stylesheet" href="../main.css">
+  <link type='text/css' rel='stylesheet' href='../../main.css'>
   </head>
   <body>
         <h1><a href="$url_acceuil">Wish List</a></h1>
