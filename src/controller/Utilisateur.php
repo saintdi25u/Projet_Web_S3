@@ -8,30 +8,66 @@ use \Psr\Http\Message\ResponseInterface as Response;
 
 class Utilisateur{
 
+    /**
+     * @var $container
+     */
     private $container;
 
+    /**
+     * Utilisateur constructor.
+     * @param $container
+     */
     public function __construct($container){
         $this->container = $container;
     }
 
+    /**
+     * Permet l'affichage de la page d'accueil
+     * @param Request $rq
+     * @param Response $rs
+     * @param $args
+     * @return Response
+     */
     public function acceuil(Request $rq, Response $rs, $args) : Response{
         $vue = new VueUtilisateur([], $this->container);
         $rs->getBody()->write($vue->render(0));
         return $rs;
     }
 
+    /**
+     * @param Request $rq
+     * @param Response $rs
+     * @param $args
+     * @return Response
+     * Permet l'affichage du formulaire de l'enregistrement d'un client
+     */
     public function registerForm(Request $rq, Response $rs, $args) : Response{
             $vue = new VueUtilisateur([], $this->container);
             $rs->getBody()->write($vue->render(2));
             return $rs;
     }
 
+
+    /**
+     * @param Request $rq
+     * @param Response $rs
+     * @param $args
+     * @return Response
+     * Permet l'affichage du formulaire de la connexion
+     */
     public function connectForm(Request $rq, Response $rs, $args) : Response{
         $vue = new VueUtilisateur([], $this->container);
         $rs->getBody()->write($vue->render(1));
         return $rs;
     }
 
+    /**
+     * @param Request $rq
+     * @param Response $rs
+     * @param $args
+     * @return Response
+     * Permet de créer un nouvel utilisateur
+     */
     public function creerUtilisateur(Request $rq, Response $rs, $args){
         $post = $rq->getParsedBody();
         $login = filter_var($post['nom'], FILTER_SANITIZE_STRING );
@@ -48,6 +84,13 @@ class Utilisateur{
         return $rs;
     }
 
+    /**
+     * @param Request $rq
+     * @param Response $rs
+     * @param $args
+     * @return Response
+     * Permet de connecter un utilisateur
+     */
     public function authUtilisateur(Request $rq, Response $rs, $args) {
 
             $post = $rq->getParsedBody();
@@ -72,6 +115,14 @@ class Utilisateur{
         return $rs;
         }
 
+
+    /**
+     * @param Request $rq
+     * @param Response $rs
+     * @param $args
+     * @return Response
+     * Permet de déconnecter un utilisateur
+     */
     public function deconnect(Request $rq, Response $rs, $args) : Response {
         if(isset($_SESSION['user'])){
             session_destroy();
@@ -85,6 +136,10 @@ class Utilisateur{
         return $rs;
     }
 
+    /**
+     * @param $uid
+     * Permet de charger le profil d'un utilisateur
+     */
     public function loadProfile($uid){
         session_start();
         $user = \mywishlist\model\Utilisateur::where('uid' ,'=', $uid) ->first();
@@ -97,6 +152,11 @@ class Utilisateur{
         var_dump($_SESSION['user']);
     }
 
+    /**
+     * @param $required
+     * @return bool
+     * Permet de vérifier si l'utilisateur possède les droits ou non
+     */
     public static function checkAccessRights($required) : bool {
         if(isset($_SESSION['user'])){
             if($_SESSION['user']['auth-level'] === $required){

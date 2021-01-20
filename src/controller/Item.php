@@ -8,18 +8,39 @@ use  \Psr\Http\Message\ResponseInterface as Response;
 
 class Item {
 
+    /**
+     * @var $container
+     */
     private $container;
 
+    /**
+     * Item constructor.
+     * @param $container
+     */
     public function __construct($container){
         $this->container = $container;
     }
 
+    /**
+     * Permet l'affichage du formulaire de l'item
+     * @param Request $rq
+     * @param Response $rs
+     * @param $args
+     * @return Response
+     */
     public function formItem(Request $rq, Response $rs , $args) : Response{
         $vue = new VueItem([], $this->container);
         $rs->getBody()->write($vue ->render(0));
         return $rs;
     }
 
+    /**
+     * Permet d'afficher un item
+     * @param Request $rq
+     * @param Response $rs
+     * @param $args
+     * @return Response
+     */
     public function afficherItem(Request $rq, Response $rs, $args ) : Response{
         $item = \mywishlist\model\Item::where('id', '=', $args['id'])->first();
         $vue = new VueItem([$item->toArray()], $this->container);
@@ -27,6 +48,13 @@ class Item {
         return $rs;
     }
 
+    /**
+     * Permet d'afficher de tous les items
+     * @param Request $rq
+     * @param Response $rs
+     * @param $args
+     * @return Response
+     */
     public function afficherAllItem(Request $rq, Response $rs, $args) {
         $Allitem = \mywishlist\model\Item::all();
         $vue = new VueItem($Allitem->toArray(), $this->container);
@@ -34,6 +62,13 @@ class Item {
         return $rs;
     }
 
+    /**
+     * Permet la création d'un item
+     * @param Request $rq
+     * @param Response $rs
+     * @param $args
+     * @return Response
+     */
     public function createItem(Request $rq, Response $rs, $args) : Response{
         $vue = new VueItem([], $this->container);
         if(Utilisateur::checkAccessRights(1)) {
@@ -59,6 +94,13 @@ class Item {
         return $rs;
     }
 
+    /**
+     * Permet d'aller sur la fonction Item
+     * @param Request $rq
+     * @param Response $rs
+     * @param $args
+     * @return Response
+     */
     public function allerSurFonctionItem(Request $rq, Response $rs, $args) {
         $vue = new VueItem( [] , $this->container);
 
@@ -68,6 +110,13 @@ class Item {
 
     }
 
+    /**
+     * Permet d'afficher le contenu de la liste
+     * @param Request $rq
+     * @param Response $rs
+     * @param $args
+     * @return Response
+     */
     public function afficherContenuListe(Request $rq, Response $rs, $args){
         $item = \mywishlist\model\Item::where('liste_id', '=', $args['no'])->get();
         $vue = new VueItem($item, $this->container);
@@ -77,6 +126,13 @@ class Item {
         return $rs;
     }
 
+
+    /**
+     * Permet d'insérer un participant d'une liste
+     * @param Request $rq
+     * @param Response $rs
+     * @param $args
+     */
     public function insererParticipant(Request $rq, Response $rs, $args) {
         $post = $rq->getParsedBody();
         $i = \mywishlist\model\Item::where('id', '=', filter_var($post['id_item'])) -> first();
