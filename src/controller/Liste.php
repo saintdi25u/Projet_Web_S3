@@ -15,7 +15,6 @@ class Liste {
         $this->container = $container;
     }
 
-
     public function creerNouvelleListe(Request $rq, Response $rs, $args){
     {   $vue = new VueListe([], $this->container);
 
@@ -53,7 +52,6 @@ class Liste {
 
         return $rs;
     }
-
 
     public function afficherListe(Request $rq, Response $rs, $args) : Response {
            $allListe = \mywishlist\model\Liste::all();
@@ -104,17 +102,5 @@ class Liste {
         $rs->getBody()->write($vue->formModifListe());
         return $rs;
     }
-
-
-
-
-
-/**
-if(is_null($i->particpant)){
-$vueItem = new VueItem([$liste->toArray()], $this->container);
-$rs ->getBody()->write($vueItem->formNomParticipant());
-}
- * */
-  
 
 }

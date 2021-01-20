@@ -1,8 +1,6 @@
 <?php
  namespace mywishlist\controller;
 
-
-
 use mywishlist\vue\VueItem;
 use mywishlist\vue\VueListe;
 use \Psr\Http\Message\ServerRequestInterface as Request;
@@ -70,7 +68,6 @@ class Item {
 
     }
 
-
     public function afficherContenuListe(Request $rq, Response $rs, $args){
         $item = \mywishlist\model\Item::where('liste_id', '=', $args['no'])->get();
         $vue = new VueItem($item, $this->container);
@@ -79,7 +76,6 @@ class Item {
         $rs ->getBody()->write($vue->formMessageItem());
         return $rs;
     }
-
 
     public function insererParticipant(Request $rq, Response $rs, $args) {
         $post = $rq->getParsedBody();
@@ -94,7 +90,5 @@ class Item {
         } else {
             $rs ->getBody()->write("<h3>Cet Item est deja reservé</h3>");
         }
-
     }
-
 }

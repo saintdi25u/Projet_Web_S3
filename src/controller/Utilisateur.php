@@ -32,8 +32,6 @@ class Utilisateur{
         return $rs;
     }
 
-
-
     public function creerUtilisateur(Request $rq, Response $rs, $args){
         $post = $rq->getParsedBody();
         $login = filter_var($post['nom'], FILTER_SANITIZE_STRING );
@@ -49,8 +47,6 @@ class Utilisateur{
         $rs ->getBody()->write($vue->render(4));
         return $rs;
     }
-
-
 
     public function authUtilisateur(Request $rq, Response $rs, $args) {
 
@@ -76,8 +72,6 @@ class Utilisateur{
         return $rs;
         }
 
-
-
     public function deconnect(Request $rq, Response $rs, $args) : Response {
         if(isset($_SESSION['user'])){
             session_destroy();
@@ -90,8 +84,6 @@ class Utilisateur{
         }
         return $rs;
     }
-
-
 
     public function loadProfile($uid){
         session_start();
@@ -114,8 +106,4 @@ class Utilisateur{
             return false;
         }
     }
-
-
-
-
 }
