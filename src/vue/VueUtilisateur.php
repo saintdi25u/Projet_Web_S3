@@ -45,7 +45,7 @@ class VueUtilisateur extends Vue  {
         public function render (int $select) : string {
             switch($select){
                 case 0 : {
-                    $content = 'Accueil racine du site';
+                    $content = '<p>Accueil racine du site</p>';
                     break;
                 }
                 case 1 : {
@@ -129,7 +129,7 @@ class VueUtilisateur extends Vue  {
 			<ul class="menu">
 				<li><a href="$url_acceuil">Accueil</a></li>
 				<li><a href="$url_connection">Connection</a></li>
-				<li><a href="$url_register">Si vous n'avez pas de compte, enregistrez vous</a></li>
+				<li><a href="$url_register">Si vous n'avez pas de compte, enregistrez-vous</a></li>
                 <li><a href="$url_deconnexion"> Déconnexion</a></li>    
                 <li><a href = "$url_liste"> Fonctionalités pour les listes</a></li>
                 <li><a href = "$url_items"> Fonctionalités pour les items</a></li>     

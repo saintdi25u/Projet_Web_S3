@@ -40,9 +40,6 @@ namespace mywishlist\vue;
          return $html;
      }
 
-
-
-
      public function afficherUneListeAvecContenu(){
          $liste = $this->tab[0];
          $html = "<link type='text/css' rel='stylesheet' href='../../main.css'>";
@@ -55,22 +52,20 @@ namespace mywishlist\vue;
 
      public function afficherListeAvecDelete(){
         $html = '';
-        $no = 1;
         foreach($this->tab as $liste){
             $url = $this->container->router->pathFor('showContenuDeleteListe');
             $url_modif = $this->container->router->pathFor('modifListe');
             $html .= "<link type='text/css' rel='stylesheet' href='../../main.css'>";
             $html .= "<div><p>{$liste['titre']}''{$liste['description']} </p>";
-            $html .= "  <form action ='$url' method = 'post'>
-                            <p><button type = 'submit' name = 'delete' value = '{$liste['no']}'> Supprimer </button></p>
-                        </form> 
+            $html .= "       <form action ='$url' method = 'post'>
+                                <p><button type = 'submit' name = 'delete' value = '{$liste['no']}'> Supprimer </button></p>
+                            </form> 
                         
-                        <form action ='$url_modif' method = 'get' >
-                            <p><button type = 'submit' name = 'modif' value = '{$liste['no']}'> Modifier </button></p>
-                        </form>   
-                        </div>";
+                            <form action ='$url_modif' method = 'get' >
+                                <p><button type = 'submit' name = 'modif' value = '{$liste['no']}'> Modifier </button></p>
+                            </form>   
+                       </div>";
         }
-        $html = "<ulstyle = list-style: none>$html</ul>";
         return $html;
      }
 
