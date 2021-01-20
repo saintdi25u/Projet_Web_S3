@@ -105,7 +105,7 @@ class VueItem extends Vue{
         switch ($select) {
             case 0 :
             {
-                $contencontent = $this->creerFormItem();
+                $content = $this->creerFormItem();
                 break;
             }
             case 1 :
